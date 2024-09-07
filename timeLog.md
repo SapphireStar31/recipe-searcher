@@ -7,4 +7,4 @@ Time Log
 
 9/5/2024 - Started working on week 2's activity and watching videos. Completed activity 1, 2, and part of activity 3. Spent about 3 hours on it.
 
-9/6/2024 - Finished working on activity 3. Spent about 2 hours on it.
+9/6/2024 - Finished working on activity 3, 4, and the exercise. Spent about 3 hours on it.
