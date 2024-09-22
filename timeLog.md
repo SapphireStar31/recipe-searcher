@@ -27,6 +27,10 @@ Week 4
 <br>
 9/18/2024 - Updated Timelog. Completed checkpoint 1 to dos with problem statement, user stories, project plan (still needs to be hammered out in more detail), and screen design. Spent around 4 hours on it.
 <br>
+9/19/2024 - Watched week 4 videos, read the references, and coded along with the demo. Started working on exercise 4. Spent about 6 hours on it.
+<br>
+9/21/2024 - Finished work on exercise 4 then started working on the individual project. Spent about 5 hours on it. 
+<br>
 <br>
 Week 5
 <br>
