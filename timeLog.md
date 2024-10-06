@@ -49,7 +49,7 @@ Week 6
 <br>
 10/1/2024 - Worked on the making different gridworks with Pure CSS and a couple other features. Spent about 2 hours on it.
 <br>
-10/3/2024 - Started working on Week 5s exercise work and watching the videos. Spent 3 hours on it. 
+10/3/2024 - Started working on Week 6s exercise work and watching the videos. Spent 3 hours on it. 
 <br>
 10/5/2024 - Finished the designs on the Pure page and updated normal HTML page to be like the Pure CSS page. Recorded the presentation and posted it to the Slack channel. Spent 6 hours on it.
 <br>
