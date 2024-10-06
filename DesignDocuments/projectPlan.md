@@ -41,6 +41,10 @@ PROJECT PLAN
 - [ ] Start creating pages for adding recipes
 - [ ] Update timelog
 
+#### Updating project plan for future
+For end of week 6 to beginning of week 7 finish tasks listed above except creating the User table will wait for week 8 when learning about authentication with AWS.
+- [] Create Unit testing on the DAOs
+- [] Add in files for logging
 
 ### Week 7
 #### Checkpoint 2 is Due: Database designed and created, at least one DAO with full CRUD (create, read, update, delete) implemented with Hibernate, DAO is fully unit tested, Log4J is implemented (no System.out.printlns)
@@ -52,10 +56,19 @@ PROJECT PLAN
 - [ ] Deploy project to AWS
 - [ ] Add deployed link to indie project list in student repo
 
+### Week 8
+- [] Create User page for sign up
+- [] Set up a profile page to view info in a profile
+- [] Make sure the User table in the database is properly connected with the other tables
+- [] Update timelog
 
 ### Week 9 (Start of the team project)
 #### Checkpoint 3 is Due: Deployed to AWS, at least one JSP that displays data from the database is implemented, authentication implemented, add AWS deployed app link to indie project list in student repo.
 - [ ] Double-check all checkpoint 3 items (above) are complete and visible in github.
+
+### Week 10
+- [] Adjust schedule and start planning ahead again depending on project status
+- [] Update project plan as well depending on how far the project is the completion
 
 ### Week 15
 - [ ] Implement Feedback from Week 14 review
