@@ -2,17 +2,26 @@ package entity;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
-
-import java.util.Objects;
+import java.util.*;
 
 /**
  * This class will hold information about ingredients and its data.
  *
  * @author Karissa
  */
+@Entity
+@Table(name = "Ingredients")
 public class Ingredients {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
     private int ingredientID;
+
+    @Column(name = "IngredientName")
     private String ingredientName;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Recipes> recipes = new ArrayList<>();
 
 
     /**
@@ -63,6 +72,24 @@ public class Ingredients {
     public void setIngredientName(String ingredientName) {
         this.ingredientName = ingredientName;
     }
+
+
+    /**
+     * Gets all Recipes associated with the Ingredient.
+     * @return recipes with the ingredient
+     */
+    public List<Recipes> getRecipes() {
+        return recipes;
+    }
+
+    /**
+     * Sets all the recipes associated with the Ingredient.
+     * @param recipes the recipes with this ingredient
+     */
+    public void setRecipes(List<Recipes> recipes) {
+        this.recipes = recipes;
+    }
+
 
 
     @Override
