@@ -31,11 +31,29 @@ Week 4
 <br>
 9/21/2024 - Finished work on exercise 4 then started working on the individual project. Spent about 5 hours on it. 
 <br>
+9/22/2024 - Started looking at materials for Professional Development Presentation. Spent about 1 hour.
+<br>
 <br>
 Week 5
 <br>
+9/26/2024 - Started looking at material for week 5 and watching videos while doing the demo. Spent about 5 hours on it.
+<br>
+9/28/2024 - Worked on Week 5 exercise TODOs and created draft of what the database will look like for the Individual project. Spent about 5 hours on it.
+<br>
+9/29/2024 - Finished the last couple things to do on Week 5s exercise and turned it in. Looked more at professional development work and created a repository to hold classes for it. Spent about 5 hours working on it.
+<br>
 <br>
 Week 6
+<br>
+9/30/2024 - Worked some more on the HTML pages for the Professional Development presentation. Spent about 3 hours on it.
+<br>
+10/1/2024 - Worked on the making different gridworks with Pure CSS and a couple other features. Spent about 2 hours on it.
+<br>
+10/3/2024 - Started working on Week 5s exercise work and watching the videos. Spent 3 hours on it. 
+<br>
+10/5/2024 - Finished the designs on the Pure page and updated normal HTML page to be like the Pure CSS page. Recorded the presentation and posted it to the Slack channel. Spent 6 hours on it.
+<br>
+10/6/2024 - Added some more details to the database for the Individual project and typed code to create it. Updated Timelog.
 <br>
 <br>
 Week 7

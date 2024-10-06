@@ -15,9 +15,9 @@ PROJECT PLAN
 
 ### Week 4 - Class topic is Hibernate
 - [ ] Research possible Web Services/APIs to use
-- [ ] List technologies, versions and how they will be used
-- [ ] First cut at database design
-- [ ] Create the dev version of the database
+- [X] List technologies, versions and how they will be used
+- [X] First cut at database design
+- [X] Create the dev version of the database
 - [ ] Create the User table
 - [ ] Create User javabean
 - [ ] Create a class to perform CRUD on User
