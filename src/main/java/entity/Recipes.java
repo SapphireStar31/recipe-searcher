@@ -10,13 +10,13 @@ import java.util.*;
  *
  * @author Karissa
  */
-@Entity
+@Entity(name = "Recipes")
 @Table(name = "RecipeNames")
 public class Recipes {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private int recipeID;
+    private int recipeNameID;
 
     @Column(name = "RecipeName")
     private String recipeName;
@@ -46,16 +46,16 @@ public class Recipes {
      * Get the recipe ID number.
      * @return the recipe ID number
      */
-    public int getRecipeID() {
-        return recipeID;
+    public int getRecipeNameID() {
+        return recipeNameID;
     }
 
     /**
      * Sets the recipe ID number.
-     * @param recipeID the recipe ID number
+     * @param recipeNameID the recipe ID number
      */
-    public void setRecipeID(int recipeID) {
-        this.recipeID = recipeID;
+    public void setRecipeNameID(int recipeNameID) {
+        this.recipeNameID = recipeNameID;
     }
 
 
@@ -99,18 +99,18 @@ public class Recipes {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Recipes recipes = (Recipes) o;
-        return recipeID == recipes.recipeID && Objects.equals(recipeName, recipes.recipeName);
+        return recipeNameID == recipes.recipeNameID && Objects.equals(recipeName, recipes.recipeName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(recipeID, recipeName);
+        return Objects.hash(recipeNameID, recipeName);
     }
 
     @Override
     public String toString() {
         return "Recipes{" +
-                "recipeID=" + recipeID +
+                "recipeNameID=" + recipeNameID +
                 ", recipeName='" + recipeName + '\'' +
                 '}';
     }

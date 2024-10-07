@@ -9,7 +9,7 @@ import java.util.*;
  *
  * @author Karissa
  */
-@Entity
+@Entity(name = "Ingredients")
 @Table(name = "Ingredients")
 public class Ingredients {
     @Id
