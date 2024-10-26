@@ -21,8 +21,19 @@ public class Recipes {
     @Column(name = "RecipeName")
     private String recipeName;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Ingredients> ingredients = new ArrayList<>();
+    @ManyToMany(
+            fetch = FetchType.EAGER,
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
+            targetEntity = Recipes.class
+    )
+    @JoinTable(
+            name = "RecipeNames_Ingredients",
+            joinColumns = @JoinColumn(name = "RecipeNameID", nullable = false, updatable = false, insertable = false),
+            inverseJoinColumns = @JoinColumn(name = "IngredientID", nullable = false, updatable = false, insertable = false),
+            foreignKey = @ForeignKey(ConstraintMode.CONSTRAINT),
+            inverseForeignKey = @ForeignKey(ConstraintMode.CONSTRAINT)
+    )
+    private Set<Ingredients> ingredients = new HashSet<Ingredients>();
 
 
     /**
@@ -80,7 +91,7 @@ public class Recipes {
      * Gets the ingredients associated with the recipe.
      * @return the ingredients in the recipe
      */
-    public List<Ingredients> getIngredients() {
+    public Set<Ingredients> getIngredients() {
         return ingredients;
     }
 
@@ -88,7 +99,7 @@ public class Recipes {
      * Sets the ingredients associated with the recipe.
      * @param ingredients the ingredients in the recipe
      */
-    public void setIngredients(List<Ingredients> ingredients) {
+    public void setIngredients(Set<Ingredients> ingredients) {
         this.ingredients = ingredients;
     }
 

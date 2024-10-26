@@ -71,12 +71,13 @@ DROP TABLE IF EXISTS `recipenames_ingredients`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `recipenames_ingredients` (
-  `RecipeNameID` int NOT NULL,
-  `IngredientID` int NOT NULL,
+  `RecipeNameID` int NOT NULL DEFAULT '0',
+  `IngredientID` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`RecipeNameID`,`IngredientID`),
-  KEY `FK_Ingredients_RecipeName` (`IngredientID`),
-  CONSTRAINT `FK_Ingredients_RecipeName` FOREIGN KEY (`IngredientID`) REFERENCES `ingredients` (`IngredientID`),
-  CONSTRAINT `FK_RecipeName_Ingredients` FOREIGN KEY (`RecipeNameID`) REFERENCES `recipenames` (`RecipeNameID`)
+  KEY `RecipeNameID` (`RecipeNameID`),
+  KEY `IngredientID` (`IngredientID`),
+  CONSTRAINT `FK_Ingredients_RecipeName` FOREIGN KEY (`IngredientID`) REFERENCES `ingredients` (`IngredientID`) ON DELETE CASCADE,
+  CONSTRAINT `FK_RecipeName_Ingredients` FOREIGN KEY (`RecipeNameID`) REFERENCES `recipenames` (`RecipeNameID`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -86,7 +87,7 @@ CREATE TABLE `recipenames_ingredients` (
 
 LOCK TABLES `recipenames_ingredients` WRITE;
 /*!40000 ALTER TABLE `recipenames_ingredients` DISABLE KEYS */;
-INSERT INTO `recipenames_ingredients` VALUES (1,1),(3,1),(1,2),(3,2),(1,3),(1,4),(1,5),(1,6),(3,6),(2,7),(3,7),(2,8),(2,9),(3,9),(2,10),(2,11),(2,12),(3,13),(3,14),(3,15),(3,16),(3,17);
+INSERT INTO `recipenames_ingredients` VALUES (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,7),(2,8),(2,9),(2,10),(2,11),(2,12),(3,1),(3,2),(3,6),(3,7),(3,9),(3,13),(3,14),(3,15),(3,16),(3,17);
 /*!40000 ALTER TABLE `recipenames_ingredients` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -99,4 +100,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-06 21:48:00
+-- Dump completed on 2024-10-23 15:49:19

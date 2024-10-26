@@ -7,7 +7,7 @@ import entity.Recipes;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
-class RecipesDaoTests {
+class RecipesDaoTestsTBD {
     RecipesDao recipesDao;
 
     @BeforeEach
@@ -31,6 +31,8 @@ class RecipesDaoTests {
 
     @Test
     void delete() {
+        recipesDao.delete(recipesDao.getById(2));
+        assertNull(recipesDao.getById(2));
     }
 
     @Test
