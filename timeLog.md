@@ -57,3 +57,34 @@ Week 6
 <br>
 <br>
 Week 7
+<br>
+10/7/2024 - Added in Generic Dao to individual project and started working on tests. Also worked on week 6 exercise. Spent about 2 hours on it.
+<br>
+10/8/2024 - Kept working on week 6s exercise and then did a peer review with Glynis, but looked at the problem in my code for deletes not working. Spent about 4 hours working and meeting with Glynis.
+<br>
+10/11/2024 - Tried fixing week 6 exercise so it would work and also fixing the individual project. Spent about 2 hours on them.
+<br>
+10/13/2024 - Worked on figuring out the issue in my individual project. Spent about 3 hours on it.
+<br>
+<br>
+Week 8
+<br>
+10/15/2024 - Fixed week 6 to have it working and turned it in. Did more work on figuring out the delete issue for the individual project. Spent about 6 hours on it.
+<br> 
+10/17/2024 - Started watching week 7s videos and completing the demo. Spent about 3 hours on it.
+<br>
+10/20/2023 - Worked on week 7 exercise and completed it. Spent about 7 hours on it.
+<br>
+<br>
+Week 9
+<br>
+10/22/2024 - Started watching week 8s videos and started on week 8 exercise. Spent about 4 hours on it.
+<br>
+10/23/2024 - Fixed delete issue in my individual project. Completed weeks 8 exercise and turned it in. Spent about 8 hours on it.
+<br>
+10/26/2024 - Started working on writing the rest of my tests for my individual project. Had meeting for the team project with my teammates. Brainstormed ideas and set up team project repository. Spent about 4 hours working and meeting up.
+<br>
+10/27/2024 - Wrote new method in individual project Generic Dao and created tests for it. Updated Timelog and Project Plan.
+<br>
+<br>
+Week 10

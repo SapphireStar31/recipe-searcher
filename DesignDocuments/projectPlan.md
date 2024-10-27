@@ -18,18 +18,13 @@ Work on User Stories:
 - As an admin, I want to be able to make updates to the database, so that I can merge or fix issues in a recipe.*
 - As an admin, I want to be able to delete recipes, so that if the recipe doesn’t follow the rules, it gets deleted.*
 
-- [ ] Research possible Web Services/APIs to use
 - [X] List technologies, versions and how they will be used
 - [X] First cut at database design
 - [X] Create the dev version of the database
-- [ ] Create the User table
-- [ ] Create User javabean
-- [ ] Create a class to perform CRUD on User
-- [ ] Create the config files for the DB connection info (dev and test)
-- [ ] Create a test version of the database for unit testing
-- [ ] Create unit tests for the User class
-- [ ] Create a class for the DB connection business
-- [ ] Update timelog
+- [X] Create the config files for the DB connection info (dev and test)
+- [X] Create a test version of the database for unit testing
+- [X] Create a class for the DB connection business
+- [X] Update timelog
 
 ### Week 5
 Work on User stories:
@@ -37,51 +32,34 @@ Work on User stories:
 - As a user, I want to be able to search for recipes by name, so that I can easily find recipes I have heard about.*
 - As a user, I want to be able to search through all recipes, so that I can easily browse through all recipes available.*
 
-- [ ] Create the Recipe table
-- [ ] Create the Recipe Ingredient table
-- [ ] Create JSP for finding recipes
-- [ ] Create JSP for recipe search results
-- [ ] Create controller to manage the work of finding a recipe
-- [ ] Update timelog
+- [X] Create the Recipe table
+- [X] Create the Recipe Ingredient table
+- [X] Update timelog
 
 ### Week 6 Class Topic Deployment to AWS
-- [ ] Make sure weeks before have their tasks done or rearrange schedule
-- [ ] Update homepage to have correct links to updated design
-- [ ] Start creating pages for adding recipes
-- [ ] Update timelog
-
-#### Updating project plan for future
-For end of week 6 to beginning of week 7 finish tasks listed above except creating the User table will wait for week 8 when learning about authentication with AWS.
-- [ ] Create Unit testing on the DAOs
-- [ ] Add in files for logging
+- [X] Make sure weeks before have their tasks done or rearrange schedule
+- [X] Update timelog
 
 ### Week 7
 #### Checkpoint 2 is Due: Database designed and created, at least one DAO with full CRUD (create, read, update, delete) implemented with Hibernate, DAO is fully unit tested, Log4J is implemented (no System.out.printlns)
 
-- [ ] Double-check all checkpoint 2 items (above) are complete and visible in github.
-- [ ] Set up Authentication in indie project (more tasks coming for this)
-- [ ] Create project DB on AWS.
-- [ ] Update project config files for AWS as needed
-- [ ] Deploy project to AWS
-- [ ] Add deployed link to indie project list in student repo
+- [X] Double-check all checkpoint 2 items (above) are complete and visible in github.
 
 ### Week 8
 Work on user stories:
 - As a user, I want to be able to create an account, so that I can favorite recipes I find interesting and be able to find it easier later.*
 - As an admin, I want to be able to delete accounts, so that if they aren’t following the rules I can delete them.*
 
-- [ ] Create User page for sign up
-- [ ] Set up a profile page to view info in a profile
-- [ ] Make sure the User table in the database is properly connected with the other tables
-- [ ] Update timelog
+- [X] Update timelog
 
 ### Week 9 (Start of the team project)
 #### Checkpoint 3 is Due: Deployed to AWS, at least one JSP that displays data from the database is implemented, authentication implemented, add AWS deployed app link to indie project list in student repo.
 User Stories to work on:
 - As a logged-in user, I want to be able to add recipes, so that I can share a recipe I know with others.*
 
+- [X] Create Unit testing on the DAOs
+- [X] Add in files for logging
 - [ ] Double-check all checkpoint 3 items (above) are complete and visible in github.
-- [ ] Add pages so that users can add recipes via the website
 
 ### Week 10
 - [ ] Adjust schedule and start planning ahead again depending on project status
@@ -93,6 +71,36 @@ User Stories to work on:
 - As a user, I want to be able to report duplicate recipes, so that there aren't multiple of the same recipe I have to look through.*
 - As a college student, I want to be able to be able to go to a random recipe, so that even if I don't know any recipes I can find some random ones I might like.
 - As an admin, I want to be able to get reports that users make, so that I can see where issues are and fix them.*
+
+
+
+### To be rearranged plans for the following weeks
+- [ ] Add pages so that users can add recipes via the website
+
+- [ ] Create User page for sign up
+- [ ] Set up a profile page to view info in a profile
+- [ ] Make sure the User table in the database is properly connected with the other tables
+
+- [ ] Set up Authentication in indie project (more tasks coming for this)
+- [ ] Create project DB on AWS.
+- [ ] Update project config files for AWS as needed
+- [ ] Deploy project to AWS
+- [ ] Add deployed link to indie project list in student repo
+
+- [ ] Update homepage to have correct links to updated design
+- [ ] Start creating pages for adding recipes
+
+- [ ] Create JSP for finding recipes
+- [ ] Create JSP for recipe search results
+- [ ] Create controller to manage the work of finding a recipe
+
+- [ ] Research possible Web Services/APIs to use
+- [ ] Create the User table
+- [ ] Create User javabean
+- [ ] Create a class to perform CRUD on User
+- [ ] Create unit tests for the User class
+
+
 
 ### Week 15
 - [ ] Implement Feedback from Week 14 review
