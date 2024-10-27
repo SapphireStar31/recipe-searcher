@@ -1,9 +1,8 @@
 package persistence;
 
-import entity.Ingredients;
 import entity.Recipes;
-import jakarta.transaction.Transactional;
 import utilities.Database;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
@@ -12,13 +11,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RecipesDaoTest {
     GenericDao recipeDao;
-    GenericDao ingredients;
-    Recipes recipe;
 
     @BeforeEach
     void setUp() {
         recipeDao = new GenericDao<>(Recipes.class);
-        ingredients = new GenericDao<>(Ingredients.class);
         Database database = Database.getInstance();
         database.runSQL("recipeSearcherTestCleanFKModified.sql");
     }
@@ -44,14 +40,27 @@ class RecipesDaoTest {
 
     @Test
     void insert() {
+        Recipes newRecipe = new Recipes("Baked Chicken");
+        int insertedRecipeID = recipeDao.insert(newRecipe);
+        Recipes insertedRecipe = (Recipes)recipeDao.getById(insertedRecipeID);
+        assertNotEquals(0, insertedRecipeID);
+        assertEquals("Baked Chicken", insertedRecipe.getRecipeName());
     }
 
     @Test
     void update() {
+        Recipes recipeToUpdate = (Recipes)recipeDao.getById(1);
+        recipeToUpdate.setRecipeName("Skinny Pancakes");
+        recipeDao.update(recipeToUpdate);
+        Recipes updatedRecipe = (Recipes)recipeDao.getById(1);
+        assertEquals("Skinny Pancakes", updatedRecipe.getRecipeName());
     }
 
     @Test
     void findByPropertyEqual() {
+        List<Recipes> matchedRecipes = recipeDao.findByPropertyEqual("recipeName", "Crepes");
+        assertEquals(1, matchedRecipes.size());
+        assertEquals(1, matchedRecipes.get(0).getRecipeNameID());
     }
 
     @Test
