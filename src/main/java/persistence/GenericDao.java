@@ -1,19 +1,14 @@
 package persistence;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-
 import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Expression;
 import jakarta.persistence.criteria.Root;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.criteria.HibernateCriteriaBuilder;
-
-
 
 /**
  * A generic DAO somewhat inspired by http://rodrigouchoa.wordpress.com
@@ -86,7 +81,6 @@ public class GenericDao<T> {
         int id = 0;
         Session session = getSession();
         Transaction transaction = session.beginTransaction();
-        // TODO we are using a deprecated method here, is there a better way?
         id = (int)session.save(entity);
         transaction.commit();
         session.close();
@@ -128,25 +122,22 @@ public class GenericDao<T> {
 
 
     /**
-     * Finds entities by multiple properties.
-     * Inspired by https://stackoverflow.com/questions/11138118/really-dynamic-jpa-criteriabuilder
-
-     * @param propertyMap property and value pairs
-     * @return entities with properties equal to those passed in the map
-     *
-     *
+     * Get objects by property (like)
+     * sample usage: getByPropertyLike("lastname", "C")
+     * @param propertyName the property name.
+     * @param value the value by which to find.
+     * @return the list of all entities found matching the criteria
      */
-    public List<T> findByPropertyEqual(Map<String, Object> propertyMap) {
+    public List<T> getByPropertyLike(String propertyName, String value) {
         Session session = getSession();
+
         HibernateCriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
-        List<Predicate> predicates = new ArrayList<Predicate>();
-        for (Map.Entry entry: propertyMap.entrySet()) {
-            predicates.add(builder.equal(root.get((String) entry.getKey()), entry.getValue()));
-        }
-        query.select(root).where(builder.and(predicates.toArray(new Predicate[predicates.size()])));
-        List<T> items = session.createSelectionQuery( query ).getResultList();
+        Expression<String> propertyPath = root.get(propertyName);
+        query.where(builder.like(propertyPath, "%" + value + "%"));
+        List<T> items = session.createQuery(query).getResultList();
+
         session.close();
         return items;
     }
