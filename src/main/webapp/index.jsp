@@ -14,11 +14,11 @@
             <form method="get" action="recipe-search">
                 <fieldset>
                     <legend>Would you like exact matches or partial matches?</legend>
-                    <label for="recipeExactMatch">Exact Matches</label>
                     <input type="radio" id="recipeExactMatch" name="recipeMatching" value="exactMatch" checked>
+                    <label for="recipeExactMatch">Exact Matches</label>
 
-                    <label for="recipePartialMatch">Partial Matches</label>
                     <input type="radio" id="recipePartialMatch" name="recipeMatching" value="partialMatch">
+                    <label for="recipePartialMatch">Partial Matches</label>
                 </fieldset>
 
                 <label for="recipeSearchBox">Search Term</label>
@@ -26,10 +26,24 @@
 
                 <input type="submit">
             </form>
-
+            <br>
+            <hr>
+            <br>
             <p>Search for recipes by ingredient here:</p>
-            <form>
-                <p>blah</p>
+            <form method="get" action="ingredient-search">
+                <fieldset>
+                    <legend>Would you like exact matches or partial matches?</legend>
+                    <input type="radio" id="ingredientExactMatch" name="ingredientMatching" value="exactMatch" checked>
+                    <label for="ingredientExactMatch">Exact Matches</label>
+
+                    <input type="radio" id="ingredientPartialMatch" name="ingredientMatching" value="partialMatch">
+                    <label for="ingredientPartialMatch">Partial Matches</label>
+                </fieldset>
+
+                <label for="ingredientSearchBox">Search Term</label>
+                <input type="text" id="ingredientSearchBox" name="ingredientSearchTerm">
+
+                <input type="submit">
             </form>
         </main>
     </body>
