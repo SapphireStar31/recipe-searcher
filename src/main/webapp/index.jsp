@@ -26,9 +26,9 @@
 
                 <input type="submit">
             </form>
-            <br>
+            <br><br>
             <hr>
-            <br>
+            <br><br>
             <p>Search for recipes by ingredient here:</p>
             <form method="get" action="ingredient-search">
                 <fieldset>

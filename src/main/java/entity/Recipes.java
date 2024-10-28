@@ -23,8 +23,7 @@ public class Recipes {
 
     @ManyToMany(
             fetch = FetchType.EAGER,
-            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
-            targetEntity = Recipes.class
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}
     )
     @JoinTable(
             name = "RecipeNames_Ingredients",

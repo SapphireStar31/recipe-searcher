@@ -1,10 +1,13 @@
 package persistence;
 
+import entity.Ingredients;
 import entity.Recipes;
 import utilities.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RecipesDaoTest {
@@ -65,5 +68,12 @@ class RecipesDaoTest {
     void getByPropertyLike() {
         List<Recipes> matchedRecipes = recipeDao.getByPropertyLike("recipeName", "s");
         assertEquals(2, matchedRecipes.size());
+    }
+
+    @Test
+    void getIngredientsFromRecipe() {
+        Recipes myRecipe = (Recipes)recipeDao.getById(1);
+        Set<Ingredients> myIngredients = myRecipe.getIngredients();
+        assertEquals(1, myRecipe.getRecipeNameID());
     }
 }

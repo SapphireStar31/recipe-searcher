@@ -16,10 +16,18 @@
         <table>
             <tr>
                 <th>Ingredient Name</th>
+                <th>Recipe Name</th>
             </tr>
             <c:forEach var="ingredients" items="${ingredients}">
                 <tr>
                     <td>${ingredients.ingredientName}</td>
+                    <td>
+                        <ul>
+                            <c:forEach var="recipes" items="${ingredients.recipes}">
+                                <li>${recipes.recipeName}</li>
+                            </c:forEach>
+                        </ul>
+                    </td>
                 </tr>
             </c:forEach>
         </table>
