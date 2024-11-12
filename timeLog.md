@@ -84,7 +84,7 @@ Week 9
 <br>
 10/26/2024 - Started working on writing the rest of my tests for my individual project. Had meeting for the team project with my teammates. Brainstormed ideas and set up team project repository. Spent about 4 hours working and meeting up.
 <br>
-10/27/2024 - Wrote new method in individual project Generic Dao and created tests for it. Updated Timelog and Project Plan.
+10/27/2024 - Wrote new method in individual project Generic Dao and created tests for it. Created JSP pages for search results and added servlets for searching. Updated Timelog and Project Plan. Spent about 5 hours on it.
 <br>
 <br>
 Week 10

@@ -1,18 +1,23 @@
 package persistence;
 
 import entity.Ingredients;
+import entity.Recipes;
 import utilities.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.util.List;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class IngredientsDaoTest {
     GenericDao ingredientDao;
+    GenericDao recipeDao;
 
     @BeforeEach
     void setUp() {
         ingredientDao = new GenericDao<>(Ingredients.class);
+        recipeDao = new GenericDao<>(Recipes.class);
         Database database = Database.getInstance();
         database.runSQL("recipeSearcherTestCleanFKModified.sql");
     }
@@ -32,8 +37,14 @@ class IngredientsDaoTest {
 
     @Test
     void delete() {
+        Ingredients myIngredient = (Ingredients)ingredientDao.getById(4);
+        Set<Recipes> myRecipes = myIngredient.getRecipes();
+        int recipe1 = myRecipes.iterator().next().getRecipeNameID();
+
         ingredientDao.delete(ingredientDao.getById(4));
         assertNull(ingredientDao.getById(4));
+
+        assertNotNull(recipeDao.getById(recipe1));
     }
 
     @Test
