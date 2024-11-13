@@ -27,6 +27,8 @@
                 <input type="submit">
             </form>
             <br><br>
+            <p>Want to browse all recipes then you can look here: </p><a href="all-recipes">All Recipes</a>
+            <br><br>
             <hr>
             <br><br>
             <p>Search for recipes by ingredient here:</p>
@@ -45,6 +47,10 @@
 
                 <input type="submit">
             </form>
+            <br><br>
+            <p>Want to browse all ingredients then you can look here: </p><a href="all-ingredients">All Ingredients</a>
+            <br><br><br><br>
+            <a href="addNewRecipe.jsp">Add a new recipe.</a>
         </main>
     </body>
 

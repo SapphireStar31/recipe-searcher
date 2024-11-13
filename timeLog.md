@@ -88,3 +88,14 @@ Week 9
 <br>
 <br>
 Week 10
+<br>
+<br>
+Week 11
+<br>
+<br>
+Week 12
+<br>
+11/12/2024 - Fixed up and added some testing for both the Ingredient and Recipe entities. Created an ERD exampling what this will look like with User table. Added in pages for viewing all recipes and ingredients. Started adding in pages for adding a new recipe. Updated Timelog. Spent about 5 hours on it.
+<br>
+<br>
+Week 13
