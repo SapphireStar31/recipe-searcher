@@ -4,11 +4,11 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/Recipe_Searcher</property>
+        <property name="connection.url">jdbc:mysql://awseb-e-bgxzwxdmq3-stack-awsebrdsdatabase-5bfnzejcifp5.cnk8e88iglzo.us-east-2.rds.amazonaws.com:3306/Recipe_Searcher</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
 
-        <property name="connection.username">admin</property>
-        <property name="connection.password">student</property>
+        <property name="connection.username">student</property>
+        <property name="connection.password">$tud5nt!3</property>
 
         <property name="hibernate.c3p0.min_size">5</property>
         <property name="hibernate.c3p0.max_size">20</property>
