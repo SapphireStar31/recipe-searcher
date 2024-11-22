@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,7 +7,14 @@
 
     <body>
         <header>
-            <h1>Welcome!</h1>
+            <c:choose>
+                <c:when test="${empty userName}">
+                    <h1>Welcome!</h1>
+                </c:when>
+                <c:otherwise>
+                    <h1>Welcome ${userName}</h1>
+                </c:otherwise>
+            </c:choose>
         </header>
 
         <main>
@@ -51,6 +59,8 @@
             <p>Want to browse all ingredients then you can look here: </p><a href="all-ingredients">All Ingredients</a>
             <br><br><br><br>
             <a href="addNewRecipe.jsp">Add a new recipe.</a>
+            <br><br><br><br>
+            <a href="log-in">Log in here</a>
         </main>
     </body>
 
