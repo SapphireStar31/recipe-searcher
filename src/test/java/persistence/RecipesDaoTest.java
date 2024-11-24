@@ -2,10 +2,12 @@ package persistence;
 
 import entity.Ingredients;
 import entity.Recipes;
+import entity.UserInformation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import utilities.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,13 +17,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class RecipesDaoTest {
     GenericDao recipeDao;
     GenericDao ingredientDao;
+    GenericDao userInfoDao;
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     @BeforeEach
     void setUp() {
         recipeDao = new GenericDao<>(Recipes.class);
         ingredientDao = new GenericDao<>(Ingredients.class);
+        userInfoDao = new GenericDao<>(UserInformation.class);
         Database database = Database.getInstance();
-        database.runSQL("recipeSearcherTestCleanFKModified.sql");
+        database.runSQL("recipeSearcherTestCleanWithUsers.sql");
     }
 
     @Test
@@ -41,12 +46,14 @@ class RecipesDaoTest {
     void delete() {
         Recipes myRecipe = (Recipes)recipeDao.getById(2);
         Set<Ingredients> myIngredients = myRecipe.getIngredients();
+        UserInformation myUser = myRecipe.getUserInformation();
         int ingredient1 = myIngredients.iterator().next().getIngredientID();
 
         recipeDao.delete(recipeDao.getById(2));
         assertNull(recipeDao.getById(2));
 
         assertNotNull(ingredientDao.getById(ingredient1));
+        assertNotNull(myUser);
     }
 
     @Test
@@ -56,6 +63,16 @@ class RecipesDaoTest {
         Recipes insertedRecipe = (Recipes)recipeDao.getById(insertedRecipeID);
         assertNotEquals(0, insertedRecipeID);
         assertEquals("Baked Chicken", insertedRecipe.getRecipeName());
+    }
+
+    @Test
+    void insertWithUser() {
+        UserInformation myUser = (UserInformation)userInfoDao.getById(2);
+        Recipes newRecipe = new Recipes("Baked Chicken", myUser);
+        int insertedRecipeID = recipeDao.insert(newRecipe);
+        Recipes insertedRecipe = (Recipes)recipeDao.getById(insertedRecipeID);
+        assertNotEquals(0, insertedRecipeID);
+        assertEquals(newRecipe, insertedRecipe);
     }
 
     @Test

@@ -21,6 +21,10 @@
     <maven-compiler-plugin-version>3.8.1</maven-compiler-plugin-version>
     <maven-surefire-plugin-version>2.19</maven-surefire-plugin-version>
     <mysql-version>8.0.16</mysql-version>
+    <lombok-version>1.18.10</lombok-version>
+    <java-jwt-version>3.4.1</java-jwt-version>
+    <json-version>20170516</json-version>
+    <commons-io-version>2.11.0</commons-io-version>
   </properties>
 
   <dependencies>
@@ -97,6 +101,25 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>${mysql-version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>com.auth0</groupId>
+      <artifactId>java-jwt</artifactId>
+      <version>${java-jwt-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>${json-version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io-version}</version>
+    </dependency>
   </dependencies>
 
 
@@ -110,6 +133,7 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${maven-compiler-plugin-version}</version>
         </plugin>
+
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>${maven-surefire-plugin-version}</version>
@@ -120,6 +144,25 @@
               <version>${junit-platform-runner-version}</version>
             </dependency>
           </dependencies>
+        </plugin>
+
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.2.2</version>
+          <configuration>
+            <webResources>
+              <resource>
+                <directory>src/main/.platform</directory>
+                <targetPath>.platform</targetPath>
+                <filtering>true</filtering>
+              </resource>
+              <resource>
+                <directory>src/main/.ebextensions</directory>
+                <targetPath>.ebextensions</targetPath>
+                <filtering>true</filtering>
+              </resource>
+            </webResources>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
