@@ -106,7 +106,6 @@ CREATE TABLE `userinformation` (
   `FullName` varchar(75) DEFAULT NULL,
   `UserEmail` varchar(75) DEFAULT NULL,
   `Username` varchar(50) DEFAULT NULL,
-  `Password` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;

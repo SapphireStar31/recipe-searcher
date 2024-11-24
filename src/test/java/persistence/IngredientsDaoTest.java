@@ -19,7 +19,7 @@ class IngredientsDaoTest {
         ingredientDao = new GenericDao<>(Ingredients.class);
         recipeDao = new GenericDao<>(Recipes.class);
         Database database = Database.getInstance();
-        database.runSQL("recipeSearcherTestCleanFKModified.sql");
+        database.runSQL("recipeSearcherTestCleanWithUsers.sql");
     }
 
     @Test

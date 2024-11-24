@@ -34,6 +34,10 @@ public class Recipes {
     )
     private Set<Ingredients> ingredients = new HashSet<Ingredients>();
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "UserID")
+    private UserInformation userInformation;
+
 
     /**
      * Instantiates a new Recipe name.
@@ -49,6 +53,17 @@ public class Recipes {
      */
     public Recipes(String recipeName) {
         this.recipeName = recipeName;
+    }
+
+    /**
+     * Instantiates a new Recipe with the recipe name and user.
+     *
+     * @param recipeName the recipes name
+     * @param userInformation the user who created the recipe
+     */
+    public Recipes(String recipeName, UserInformation userInformation) {
+        this.recipeName = recipeName;
+        this.userInformation = userInformation;
     }
 
 
@@ -100,6 +115,23 @@ public class Recipes {
      */
     public void setIngredients(Set<Ingredients> ingredients) {
         this.ingredients = ingredients;
+    }
+
+
+    /**
+     * Gets the user associated with the recipe.
+     * @return the user associated with the recipe
+     */
+    public UserInformation getUserInformation() {
+        return userInformation;
+    }
+
+    /**
+     * Sets the user associated with the recipe.
+     * @param userInformation the user associated with the recipe
+     */
+    public void setUserInformation(UserInformation userInformation) {
+        this.userInformation = userInformation;
     }
 
 

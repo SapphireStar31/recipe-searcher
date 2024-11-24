@@ -18,5 +18,6 @@
 
         <mapping class="entity.Ingredients"/>
         <mapping class="entity.Recipes"/>
+        <mapping class="entity.UserInformation"/>
     </session-factory>
 </hibernate-configuration>

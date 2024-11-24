@@ -67,7 +67,7 @@ UNLOCK TABLES;
 -- Table structure for table `recipenames_ingredients`
 --
 
-DROP TABLE IF EXISTS `recipenames_ingredients`;
+DROP TABLE IF EXISTS RecipeNames_Ingredients;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `recipenames_ingredients` (
@@ -85,10 +85,10 @@ CREATE TABLE `recipenames_ingredients` (
 -- Dumping data for table `recipenames_ingredients`
 --
 
-LOCK TABLES `recipenames_ingredients` WRITE;
-/*!40000 ALTER TABLE `recipenames_ingredients` DISABLE KEYS */;
-INSERT INTO `recipenames_ingredients` VALUES (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,7),(2,8),(2,9),(2,10),(2,11),(2,12),(3,1),(3,2),(3,6),(3,7),(3,9),(3,13),(3,14),(3,15),(3,16),(3,17);
-/*!40000 ALTER TABLE `recipenames_ingredients` ENABLE KEYS */;
+LOCK TABLES RecipeNames_Ingredients WRITE;
+/*!40000 ALTER TABLE RecipeNames_Ingredients DISABLE KEYS */;
+INSERT INTO RecipeNames_Ingredients VALUES (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,7),(2,8),(2,9),(2,10),(2,11),(2,12),(3,1),(3,2),(3,6),(3,7),(3,9),(3,13),(3,14),(3,15),(3,16),(3,17);
+/*!40000 ALTER TABLE RecipeNames_Ingredients ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -1,6 +1,8 @@
 package controller;
 
 import authentication.*;
+import entity.UserInformation;
+import persistence.GenericDao;
 import utilities.PropertiesLoader;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
@@ -72,7 +74,10 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String authCode = req.getParameter("code");
+        List<String> returnedAttribute = new ArrayList<>();
         String userName = null;
+        String fullName = null;
+        String userEmail = null;
 
         if (authCode == null) {
             RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
@@ -81,8 +86,13 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
             HttpRequest authRequest = buildAuthRequest(authCode);
             try {
                 TokenResponse tokenResponse = getToken(authRequest);
-                userName = validate(tokenResponse);
+                returnedAttribute = validate(tokenResponse);
+                userName = returnedAttribute.get(0);
+                fullName = returnedAttribute.get(1);
+                userEmail = returnedAttribute.get(2);
                 req.setAttribute("userName", userName);
+                req.setAttribute("fullName", fullName);
+                req.setAttribute("userEmail", userEmail);
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
@@ -130,7 +140,7 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
      * @return
      * @throws IOException
      */
-    private String validate(TokenResponse tokenResponse) throws IOException {
+    private List<String> validate(TokenResponse tokenResponse) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         CognitoTokenHeader tokenHeader = mapper.readValue(CognitoJWTParser.getHeader(tokenResponse.getIdToken()).toString(), CognitoTokenHeader.class);
 
@@ -162,18 +172,29 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
                 .withIssuer(iss)
                 .withClaim("token_use", "id") // make sure you're verifying id token
                 .build();
-
         // Verify the token
         DecodedJWT jwt = verifier.verify(tokenResponse.getIdToken());
         String userName = jwt.getClaim("cognito:username").asString();
-        logger.debug("here's the username: " + userName);
+        logger.debug("here's the username: {}", userName);
 
-        logger.debug("here are all the available claims: " + jwt.getClaims());
+        String fullName = jwt.getClaim("name").asString();
+        logger.debug("here's the full name: {}", fullName);
 
-        // decide what you want to do with the info!
-        // for now, I'm just returning username for display back to the browser
+        String userEmail = jwt.getClaim("email").asString();
+        logger.debug("here's the users email: {}", userEmail);
 
-        return userName;
+        logger.debug("here are all the available claims: {}", jwt.getClaims());
+
+        // PUT THE RETURNED ATTRIBUTES IN A LIST
+        List<String> returnedAttributes = new ArrayList<>();
+        returnedAttributes.add(userName);
+        returnedAttributes.add(fullName);
+        returnedAttributes.add(userEmail);
+
+        // CHECK IF USER IS IN THE DATABASE AND IF NOT ADD THEM
+        addUserToDatabase(returnedAttributes);
+
+        return returnedAttributes;
     }
 
     /** Create the auth url and use it to build the request.
@@ -247,6 +268,33 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
             logger.error("Cannot load properties..." + ioException.getMessage(), ioException);
         } catch (Exception e) {
             logger.error("Error loading properties" + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * This class will check if the user is in the database and if they are
+     * not it will add them to the UserInformation table.
+     * @param userAttributes the attributes AWS cognito gave us
+     */
+    private void addUserToDatabase(List<String> userAttributes) {
+        UserInformation currentUser = new UserInformation();
+        GenericDao userInfoDao = new GenericDao<>(UserInformation.class);
+        List<String> databaseEmails = new ArrayList<>();
+
+        currentUser.setUsername(userAttributes.get(0));
+        currentUser.setFullName(userAttributes.get(1));
+        currentUser.setUserEmail(userAttributes.get(2));
+
+        // IF THE CURRENTUSER EMAIL IS IN THE DATABASE SKIP ADDING
+        List<UserInformation> allUsers = userInfoDao.getAll();
+        for (UserInformation allUserInfo : allUsers) {
+            databaseEmails.add(allUserInfo.getUserEmail());
+        }
+
+        boolean inDatabase = databaseEmails.contains(currentUser.getUserEmail());
+
+        if (!inDatabase) {
+            userInfoDao.insert(currentUser);
         }
     }
 }
