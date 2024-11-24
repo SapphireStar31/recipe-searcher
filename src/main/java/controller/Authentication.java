@@ -37,12 +37,12 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-@WebServlet(
-        urlPatterns = {"/auth"}
-)
 /**
  * Inspired by: https://stackoverflow.com/questions/52144721/how-to-get-access-token-using-client-credentials-using-java-code
  */
+@WebServlet(
+        urlPatterns = {"/auth"}
+)
 
 public class Authentication extends HttpServlet implements PropertiesLoader {
     Properties properties;

@@ -12,7 +12,7 @@
                     <h1>Welcome!</h1>
                 </c:when>
                 <c:otherwise>
-                    <h1>Welcome ${userName}</h1>
+                    <h1>Welcome ${userName}!</h1>
                 </c:otherwise>
             </c:choose>
         </header>
@@ -61,6 +61,8 @@
             <a href="addNewRecipe.jsp">Add a new recipe.</a>
             <br><br><br><br>
             <a href="log-in">Log in here</a>
+            <br><br>
+            <a href="log-out">Log out here</a>
         </main>
     </body>
 
