@@ -99,3 +99,20 @@ Week 12
 <br>
 <br>
 Week 13
+<br>
+11/19/2024 - Created Elastic Beanstalk for project. Added it into the application and got it successfully deployed. Spent about 6 hours on it.
+<br>
+11/21/2024 - Created Cognito User Pool. Started work on linking it up with application and the Elastic Beanstalk environment. Spent about 6 hours on it.
+<br>
+11/23/2024 - Worked on linking up Cognito User Pool with application. Spent about 4 hours on it.
+<br>
+11/24/2024 - Finished linking Cognito up with project. Worked on fixing HTML and adding in CSS with Bootstrap and personal CSS. Updated Timelog. Spent about 6 hours on it.
+<br>
+<br>
+Week 14
+<br>
+<br>
+Week 15
+<br>
+<br>
+Week 16

@@ -1,12 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Home - Recipe Searcher</title>
-    </head>
+<html lang="en">
+    <c:import url="head.jsp"/>
 
     <body>
         <header>
+            <c:import url="navigation.jsp"/>
+            <c:import url="searchBar.jsp"/>
             <c:choose>
                 <c:when test="${empty userName}">
                     <h1>Welcome!</h1>
@@ -66,7 +66,5 @@
         </main>
     </body>
 
-    <footer>
-
-    </footer>
+    <c:import url="footer.jsp"/>
 </html>
