@@ -7,6 +7,7 @@
         <header>
             <c:import url="navigation.jsp"/>
             <c:import url="searchBar.jsp"/>
+            <br>
             <c:choose>
                 <c:when test="${empty userName}">
                     <h1>Welcome!</h1>
@@ -35,7 +36,7 @@
                 <input type="submit">
             </form>
             <br><br>
-            <p>Want to browse all recipes then you can look here: </p><a href="all-recipes">All Recipes</a>
+            <p>Want to browse all recipes then you can look here: <a href="all-recipes">All Recipes</a></p>
             <br><br>
             <hr>
             <br><br>
@@ -56,13 +57,8 @@
                 <input type="submit">
             </form>
             <br><br>
-            <p>Want to browse all ingredients then you can look here: </p><a href="all-ingredients">All Ingredients</a>
-            <br><br><br><br>
-            <a href="addNewRecipe.jsp">Add a new recipe.</a>
-            <br><br><br><br>
-            <a href="log-in">Log in here</a>
+            <p>Want to browse all ingredients then you can look here: <a href="all-ingredients">All Ingredients</a></p>
             <br><br>
-            <a href="log-out">Log out here</a>
         </main>
     </body>
 
