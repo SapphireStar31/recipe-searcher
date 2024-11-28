@@ -13,16 +13,16 @@ Creating an easy to navigate site that holds different recipes with their common
 - Database
   - MySQL 8.x
 - ORM Framework
-  - Hibernate Version TBD
+  - Hibernate Version 6.4.3
 - Dependency Management
   - Maven
 - Web Services consumed using Java
-  - TBD
+  - Spoonacular API (https://spoonacular.com/food-api)
 - CSS
-  - TBD
+  - Custom CSS
+  - Bootstrap
 - Data Validation
   - Bootstrap Validator for front end
-  - Explore Hibernate Validator?
 - Logging
   - Log4J2
 - Hosting

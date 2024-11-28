@@ -111,6 +111,10 @@ Week 13
 <br>
 Week 14
 <br>
+11/26/2024 - Fixed up some more CSS while deploying it out to AWS. Also looked into APIs to use with my project. Spent about 2 hours on it.
+<br>
+11/28/2024 - Found API to use and signed up for Spoonacular. Worked on integrating it with the project. Spent about 4 hours on it.
+<br>
 <br>
 Week 15
 <br>

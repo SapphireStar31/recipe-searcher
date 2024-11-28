@@ -6,3 +6,7 @@ body {
     width: 70%;
     margin: 1em auto;
 }
+
+p {
+    margin: 0;
+}
