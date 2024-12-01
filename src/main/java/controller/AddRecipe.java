@@ -33,6 +33,13 @@ public class AddRecipe extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if (request.getAttribute("userName") == null
+                || request.getAttribute("fullName") == null
+                || request.getAttribute("userEmail") == null) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/error.jsp");
+            dispatcher.forward(request, response);
+        }
+
         GenericDao recipeDao = new GenericDao<>(Recipes.class);
         GenericDao ingredientDao = new GenericDao<>(Ingredients.class);
 
