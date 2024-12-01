@@ -6,7 +6,6 @@
     <body>
         <header>
             <c:import url="navigation.jsp"/>
-            <br><br>
             <c:choose>
                 <c:when test="${empty userName}">
                     <h1>Welcome!</h1>

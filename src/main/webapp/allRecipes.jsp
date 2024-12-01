@@ -16,9 +16,11 @@
             </tr>
             <c:forEach var="recipes" items="${recipes}">
                 <tr>
-                    <td>${recipes.recipeName}</td>
+                    <td><a href="recipe-information?recipeName=${recipes.recipeName}">${recipes.recipeName}</a></td>
                 </tr>
             </c:forEach>
         </table>
     </body>
+
+    <c:import url="footer.jsp"/>
 </html>
