@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -33,15 +34,17 @@ public class AddRecipe extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getAttribute("userName") == null
-                || request.getAttribute("fullName") == null
-                || request.getAttribute("userEmail") == null) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/error.jsp");
-            dispatcher.forward(request, response);
-        }
-
         GenericDao recipeDao = new GenericDao<>(Recipes.class);
         GenericDao ingredientDao = new GenericDao<>(Ingredients.class);
+
+        List<Recipes> matchingRecipe = recipeDao.getAll();
+        for (Recipes recipeName : matchingRecipe) {
+            if (recipeName.getRecipeName().equals(request.getParameter("recipeName"))) {
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/duplicateRecipe.jsp");
+                dispatcher.forward(request, response);
+                return;
+            }
+        }
 
         String ingredientParameter = null;
         boolean moreIngredients = true;
@@ -57,13 +60,15 @@ public class AddRecipe extends HttpServlet {
             ingredientParameter = request.getParameter("ingredient" + loopNumber);
 
             if (ingredientParameter != null) {
-                Ingredients newIngredient = new Ingredients();
-                newIngredient.setIngredientName(ingredientParameter);
+                if (!ingredientParameter.isEmpty()) {
+                    Ingredients newIngredient = new Ingredients();
+                    newIngredient.setIngredientName(ingredientParameter);
 
-                ingredientDao.insert(newIngredient);
-                listOfIngredients.add(newIngredient);
+                    ingredientDao.insert(newIngredient);
+                    listOfIngredients.add(newIngredient);
 
-                loopNumber++;
+                    loopNumber++;
+                }
             } else {
                 moreIngredients = false;
             }
