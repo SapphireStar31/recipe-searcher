@@ -29,7 +29,6 @@
                 </c:forEach>
             </ul>
         </main>
+        <c:import url="footer.jsp"/>
     </body>
-
-    <c:import url="footer.jsp"/>
 </html>

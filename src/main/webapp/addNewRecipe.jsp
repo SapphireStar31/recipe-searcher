@@ -27,6 +27,7 @@
         </form>
         <br>
         <button onclick="addInputField()">Add Input Field</button>
+        <button onclick="removeInputField()">Remove Input Field</button>
 
 
 
@@ -51,7 +52,15 @@
                 inputField.appendChild(newInputField);
             }
         </script>
+        <script>
+            function removeInputField() {
+                const formInputField = document.getElementById("ingredientInputField");
+                if (formInputField.children.length > 2) {
+                    formInputField.removeChild(formInputField.lastChild);
+                    formInputField.removeChild(formInputField.lastChild);
+                }
+            }
+        </script>
+        <c:import url="footer.jsp"/>
     </body>
-
-    <c:import url="footer.jsp"/>
 </html>

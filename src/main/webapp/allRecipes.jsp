@@ -20,7 +20,6 @@
                 </tr>
             </c:forEach>
         </table>
+        <c:import url="footer.jsp"/>
     </body>
-
-    <c:import url="footer.jsp"/>
 </html>

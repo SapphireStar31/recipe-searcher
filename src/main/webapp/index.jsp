@@ -58,7 +58,6 @@
             <p>Want to browse all ingredients then you can look here: <a href="all-ingredients">All Ingredients</a></p>
             <br><br>
         </main>
+        <c:import url="footer.jsp"/>
     </body>
-
-    <c:import url="footer.jsp"/>
 </html>

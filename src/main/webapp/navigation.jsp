@@ -9,15 +9,9 @@
                 <a class="nav-link" href="index.jsp">Homepage</a>
                 <a class="nav-link" href="all-recipes">All Recipes</a>
                 <a class="nav-link" href="all-ingredients">All Ingredients</a>
-                <c:choose>
-                    <c:when test="${empty userName}">
-                        <a class="nav-link" href="log-in">Log in/Sign Up</a>
-                    </c:when>
-                    <c:otherwise>
-                        <a class="nav-link" href="addNewRecipe.jsp">Add a new recipe</a>
-                        <a class="nav-link" href="log-out">Log out here</a>
-                    </c:otherwise>
-                </c:choose>
+                <a class="nav-link" href="log-in">Log in/Sign Up</a>
+                <a class="nav-link" href="addNewRecipe.jsp">Add a new recipe</a>
+                <a class="nav-link" href="log-out">Log out here</a>
             </div>
         </div>
     </div>

@@ -12,7 +12,6 @@
 
         <h2>Whoops!</h2>
         <p>Looks like we hit an error. Try again later.</p>
+        <c:import url="footer.jsp"/>
     </body>
-
-    <c:import url="footer.jsp"/>
 </html>
