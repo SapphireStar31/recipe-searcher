@@ -54,51 +54,50 @@ Work on user stories:
 
 ### Week 9 (Start of the team project)
 #### Checkpoint 3 is Due: Deployed to AWS, at least one JSP that displays data from the database is implemented, authentication implemented, add AWS deployed app link to indie project list in student repo.
-User Stories to work on:
+Work on User stories:
 - As a logged-in user, I want to be able to add recipes, so that I can share a recipe I know with others.*
 
 - [X] Create Unit testing on the DAOs
 - [X] Add in files for logging
-- [ ] Double-check all checkpoint 3 items (above) are complete and visible in github.
+- [X] Double-check all checkpoint 3 items (above) are complete and visible in github.
 
 ### Week 10
-- [ ] Adjust schedule and start planning ahead again depending on project status
-- [ ] Update project plan as well depending on how far the project is the completion
-- User Stories to still be worked out:
-- As a user, I want to be able to see if a recipe follows certain dietary restrictions, so that I can find ones that fit my restrictions.
+- [X] Adjust schedule and start planning ahead again depending on project status
+- [X] Update project plan as well depending on how far the project is the completion
+
+### Week 11
+
+### Week 12
+- [X] Start creating pages for adding recipes
+- [X] Add pages so that users can add recipes via the website
+- [X] Create JSP for finding recipes
+- [X] Create JSP for recipe search results
+- [X] Create controller to manage the work of finding a recipe
+- [X] Update homepage to have correct links to updated design
+
+### Week 13
+- [X] Create User page for sign up
+- [X] Create the User table
+- [X] Make sure the User table in the database is properly connected with the other tables
+- [X] Set up Authentication in indie project
+- [X] Create project DB on AWS.
+- [X] Update project config files for AWS as needed
+- [X] Deploy project to AWS
+
+### Week 14
+Work on User stories:
 - As a logged-in user, I want to be able to edit my recipes, so that if there are changes to its ingredients, I can change it.*
 - As a logged-in user, I want to be able to add ingredients to other recipes, so that if there are ingredients I use and not others I can add them.*
-- As a user, I want to be able to report duplicate recipes, so that there aren't multiple of the same recipe I have to look through.*
-- As a college student, I want to be able to be able to go to a random recipe, so that even if I don't know any recipes I can find some random ones I might like.
-- As an admin, I want to be able to get reports that users make, so that I can see where issues are and fix them.*
 
+- [X] Research possible Web Services/APIs to use
+- [ ] Add deployed link to indie project list in student repo
 
 
 ### To be rearranged plans for the following weeks
-- [ ] Add pages so that users can add recipes via the website
-
-- [ ] Create User page for sign up
-- [ ] Set up a profile page to view info in a profile
-- [ ] Make sure the User table in the database is properly connected with the other tables
-
-- [ ] Set up Authentication in indie project (more tasks coming for this)
-- [ ] Create project DB on AWS.
-- [ ] Update project config files for AWS as needed
-- [ ] Deploy project to AWS
-- [ ] Add deployed link to indie project list in student repo
-
-- [ ] Update homepage to have correct links to updated design
-- [ ] Start creating pages for adding recipes
-
-- [ ] Create JSP for finding recipes
-- [ ] Create JSP for recipe search results
-- [ ] Create controller to manage the work of finding a recipe
-
-- [ ] Research possible Web Services/APIs to use
-- [ ] Create the User table
-- [ ] Create User javabean
-- [ ] Create a class to perform CRUD on User
-- [ ] Create unit tests for the User class
+- User Stories to still be worked out:
+- As a user, I want to be able to report duplicate recipes, so that there aren't multiple of the same recipe I have to look through.*
+- As a college student, I want to be able to be able to go to a random recipe, so that even if I don't know any recipes I can find some random ones I might like.
+- As an admin, I want to be able to get reports that users make, so that I can see where issues are and fix them.*
 
 
 

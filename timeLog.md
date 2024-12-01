@@ -115,7 +115,7 @@ Week 14
 <br>
 11/28/2024 - Found API to use and signed up for Spoonacular. Worked on integrating it with the project. Spent about 5 hours on it.
 <br>
-11/30/2024 - Continued work with adding the API to the project. Created pages to show each recipe and related information on it. Spent about 3 hours on it.
+11/30/2024 - Continued work with adding the API to the project. Created pages to show each recipe and related information on it. Updated Project Plan. Spent about 4 hours on it.
 <br>
 <br>
 Week 15
