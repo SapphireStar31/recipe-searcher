@@ -10,9 +10,9 @@
             <h1>All Ingredients</h1>
         </header>
 
-        <table>
+        <table class="table table-striped table-hover">
             <tr>
-                <th>Ingredient Name</th>
+                <th scope="col">Ingredient Name</th>
             </tr>
             <c:forEach var="ingredients" items="${ingredients}">
                 <tr>

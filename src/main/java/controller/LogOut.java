@@ -71,6 +71,7 @@ public class LogOut extends HttpServlet implements PropertiesLoader {
         session.removeAttribute("userName");
         session.removeAttribute("fullName");
         session.removeAttribute("userEmail");
+        session.removeAttribute("userID");
 
         String url = LOGOUT_URL + "?client_id=" + CLIENT_ID + "&logout_uri=" + REDIRECT_URL;
         resp.sendRedirect(url);

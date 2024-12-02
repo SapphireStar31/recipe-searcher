@@ -10,10 +10,10 @@
             <h1>Search Results</h1>
         </header>
 
-        <table>
+        <table class="table table-striped table-hover">
             <tr>
-                <th>Recipe Name</th>
-                <th>Ingredients</th>
+                <th scope="col">Recipe Name</th>
+                <th scope="col">Ingredients</th>
             </tr>
             <c:forEach var="recipes" items="${recipes}">
                 <tr>

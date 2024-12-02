@@ -2,6 +2,7 @@ package controller;
 
 import entity.Ingredients;
 import entity.Recipes;
+import entity.UserInformation;
 import persistence.GenericDao;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.*;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
@@ -34,8 +36,9 @@ public class AddRecipe extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
         GenericDao recipeDao = new GenericDao<>(Recipes.class);
-        GenericDao ingredientDao = new GenericDao<>(Ingredients.class);
+        GenericDao userDao = new GenericDao<>(UserInformation.class);
 
         List<Recipes> matchingRecipe = recipeDao.getAll();
         for (Recipes recipeName : matchingRecipe) {
@@ -54,17 +57,16 @@ public class AddRecipe extends HttpServlet {
 
         Set<Ingredients> listOfIngredients = new HashSet<Ingredients>();
 
+        // SET RECIPE NAME
         newRecipe.setRecipeName(request.getParameter("recipeName"));
 
+        // SET INGREDIENTS
         while (moreIngredients) {
             ingredientParameter = request.getParameter("ingredient" + loopNumber);
 
             if (ingredientParameter != null) {
                 if (!ingredientParameter.isEmpty()) {
-                    Ingredients newIngredient = new Ingredients();
-                    newIngredient.setIngredientName(ingredientParameter);
-
-                    ingredientDao.insert(newIngredient);
+                    Ingredients newIngredient = addIngredientToDatabase(ingredientParameter);
                     listOfIngredients.add(newIngredient);
 
                     loopNumber++;
@@ -76,6 +78,13 @@ public class AddRecipe extends HttpServlet {
 
         newRecipe.setIngredients(listOfIngredients);
 
+        // SET USER INFORMATION
+        String retrievedUserID = (String)session.getAttribute("userID");
+        int userID = Integer.parseInt(retrievedUserID);
+        UserInformation userCreatingRecipe = (UserInformation)userDao.getById(userID);
+        newRecipe.setUserInformation(userCreatingRecipe);
+
+        // FINALLY INSERT THE NEW RECIPE
         recipeDao.insert(newRecipe);
 
 
@@ -83,5 +92,30 @@ public class AddRecipe extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/allRecipes.jsp");
         dispatcher.forward(request, response);
+    }
+
+    /**
+     * This method will figure out if the ingredient is in the database and
+     * if it isn't it will add it.
+     * @param sentIngredient the ingredient we are checking
+     */
+    private Ingredients addIngredientToDatabase(String sentIngredient) {
+        // GET ALL RECORDS FROM DATABASE
+        GenericDao ingredientDao = new GenericDao<>(Ingredients.class);
+        List<Ingredients> allIngredients = ingredientDao.getAll();
+
+        // LOOPS THROUGH AND SEE IF THAT MATCHES ANY NAMES
+        for (Ingredients currentIngredient : allIngredients) {
+            if (sentIngredient.equals(currentIngredient.getIngredientName())) {
+                // MEANS THAT IT WAS FOUND ALREADY IN THE DATABASE
+                // WE DON'T WANT TO ADD IT SO JUST RETURN THE CURRENT INGREDIENT
+                return currentIngredient;
+            }
+        }
+
+        // DONE WITH LOOP SO IF IT MADE IT HERE MEANS NO INGREDIENTS MATCHED
+        // IF NO NAMES MATCH ADD TO THE DATABASE
+        int insertedIngredientID = ingredientDao.insert(sentIngredient);
+        return (Ingredients)ingredientDao.getById(insertedIngredientID);
     }
 }

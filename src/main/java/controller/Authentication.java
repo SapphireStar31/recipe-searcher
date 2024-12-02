@@ -80,6 +80,7 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
         String userName = null;
         String fullName = null;
         String userEmail = null;
+        String userID = null;
 
         if (authCode == null) {
             RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
@@ -92,9 +93,11 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
                 userName = returnedAttribute.get(0);
                 fullName = returnedAttribute.get(1);
                 userEmail = returnedAttribute.get(2);
+                userID = returnedAttribute.get(3);
                 session.setAttribute("userName", userName);
                 session.setAttribute("fullName", fullName);
                 session.setAttribute("userEmail", userEmail);
+                session.setAttribute("userID", userID);
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
@@ -194,7 +197,9 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
         returnedAttributes.add(userEmail);
 
         // CHECK IF USER IS IN THE DATABASE AND IF NOT ADD THEM
-        addUserToDatabase(returnedAttributes);
+        // THEN GET THE ID NUMBER FOR TRACKING LATER
+        int usersIDNumber = addUserToDatabase(returnedAttributes);
+        returnedAttributes.add(String.valueOf(usersIDNumber));
 
         return returnedAttributes;
     }
@@ -277,8 +282,9 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
      * This class will check if the user is in the database and if they are
      * not it will add them to the UserInformation table.
      * @param userAttributes the attributes AWS cognito gave us
+     * @return the users ID number
      */
-    private void addUserToDatabase(List<String> userAttributes) {
+    private int addUserToDatabase(List<String> userAttributes) {
         UserInformation currentUser = new UserInformation();
         GenericDao userInfoDao = new GenericDao<>(UserInformation.class);
         List<String> databaseEmails = new ArrayList<>();
@@ -298,6 +304,21 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
         if (!inDatabase) {
             userInfoDao.insert(currentUser);
         }
+
+        return getUsersIDNumber(currentUser.getUserEmail());
+    }
+
+
+    /**
+     * Get users ID number for adding to session to track user.
+     * @param userEmail the users email thats trying to sign in or sign up
+     * @return the users ID number
+     */
+    private int getUsersIDNumber(String userEmail) {
+        GenericDao userInfoDao = new GenericDao<>(UserInformation.class);
+        List<UserInformation> matchingUser = userInfoDao.findByPropertyEqual("userEmail", userEmail);
+        UserInformation matchingInfo = matchingUser.get(0);
+        return matchingInfo.getUserID();
     }
 }
 
