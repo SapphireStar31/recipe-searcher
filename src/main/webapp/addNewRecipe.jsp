@@ -3,6 +3,13 @@
 <html lang="en">
     <c:import url="head.jsp"/>
 
+    <%
+        String userName = (String)session.getAttribute("userName");
+        if (userName == null) {
+            response.sendRedirect("error.jsp");
+        }
+    %>
+
     <body>
         <header>
             <c:import url="navigation.jsp"/>

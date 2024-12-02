@@ -18,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.*;
 import java.math.BigInteger;
 import java.net.URI;
@@ -73,6 +74,7 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
      */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
         String authCode = req.getParameter("code");
         List<String> returnedAttribute = new ArrayList<>();
         String userName = null;
@@ -90,9 +92,9 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
                 userName = returnedAttribute.get(0);
                 fullName = returnedAttribute.get(1);
                 userEmail = returnedAttribute.get(2);
-                req.setAttribute("userName", userName);
-                req.setAttribute("fullName", fullName);
-                req.setAttribute("userEmail", userEmail);
+                session.setAttribute("userName", userName);
+                session.setAttribute("fullName", fullName);
+                session.setAttribute("userEmail", userEmail);
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");

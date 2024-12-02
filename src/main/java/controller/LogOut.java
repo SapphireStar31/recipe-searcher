@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -66,6 +67,11 @@ public class LogOut extends HttpServlet implements PropertiesLoader {
             RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
             dispatcher.forward(req, resp);
         }
+        HttpSession session = req.getSession();
+        session.removeAttribute("userName");
+        session.removeAttribute("fullName");
+        session.removeAttribute("userEmail");
+
         String url = LOGOUT_URL + "?client_id=" + CLIENT_ID + "&logout_uri=" + REDIRECT_URL;
         resp.sendRedirect(url);
     }

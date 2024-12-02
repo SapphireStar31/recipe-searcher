@@ -17,6 +17,8 @@
         </header>
 
         <main>
+            <hr>
+            <br>
             <p>Search for recipes by recipe name here:</p>
             <form method="get" action="recipe-search">
                 <fieldset>
