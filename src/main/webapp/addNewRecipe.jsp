@@ -17,7 +17,7 @@
             <h1>Add a New Recipe</h1>
         </header>
 
-        <form id="addRecipeForm" method="get" action="add-recipe">
+        <form id="addRecipeForm" method="post" action="add-recipe">
             <label for="recipeName">Recipe Name</label>
             <input type="text" id="recipeName" name="recipeName">
 

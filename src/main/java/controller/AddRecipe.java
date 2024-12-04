@@ -1,8 +1,8 @@
 package controller;
 
-import entity.Ingredients;
-import entity.Recipes;
-import entity.UserInformation;
+import entity.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,6 +27,7 @@ import java.util.Set;
 )
 
 public class AddRecipe extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
     /**
      * This method will handle HTTP GET requests.
      * @param request the HttpServletRequest object
@@ -34,7 +35,7 @@ public class AddRecipe extends HttpServlet {
      * @exception ServletException if there is a Servlet failure
      * @exception IOException if there is an IO failure
      */
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         GenericDao recipeDao = new GenericDao<>(Recipes.class);
@@ -88,9 +89,7 @@ public class AddRecipe extends HttpServlet {
         recipeDao.insert(newRecipe);
 
 
-        request.setAttribute("recipes", recipeDao.getAll());
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/allRecipes.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/successfullyAdded.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -98,6 +97,7 @@ public class AddRecipe extends HttpServlet {
      * This method will figure out if the ingredient is in the database and
      * if it isn't it will add it.
      * @param sentIngredient the ingredient we are checking
+     * return the ingredient that is a part of the recipe
      */
     private Ingredients addIngredientToDatabase(String sentIngredient) {
         // GET ALL RECORDS FROM DATABASE
@@ -115,7 +115,8 @@ public class AddRecipe extends HttpServlet {
 
         // DONE WITH LOOP SO IF IT MADE IT HERE MEANS NO INGREDIENTS MATCHED
         // IF NO NAMES MATCH ADD TO THE DATABASE
-        int insertedIngredientID = ingredientDao.insert(sentIngredient);
+        Ingredients newIngredient = new Ingredients(sentIngredient);
+        int insertedIngredientID = ingredientDao.insert(newIngredient);
         return (Ingredients)ingredientDao.getById(insertedIngredientID);
     }
 }
