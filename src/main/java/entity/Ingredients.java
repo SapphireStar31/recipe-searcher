@@ -21,7 +21,7 @@ public class Ingredients {
     private String ingredientName;
 
     @ManyToMany(
-            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH},
+            cascade = {CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH},
             fetch = FetchType.EAGER
     )
     @JoinTable(

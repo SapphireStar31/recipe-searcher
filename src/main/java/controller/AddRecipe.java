@@ -29,7 +29,7 @@ import java.util.Set;
 public class AddRecipe extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
     /**
-     * This method will handle HTTP GET requests.
+     * This method will handle HTTP POST requests.
      * @param request the HttpServletRequest object
      * @param response the HttpServletResponse object
      * @exception ServletException if there is a Servlet failure
@@ -39,7 +39,6 @@ public class AddRecipe extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         GenericDao recipeDao = new GenericDao<>(Recipes.class);
-        GenericDao userDao = new GenericDao<>(UserInformation.class);
 
         List<Recipes> matchingRecipe = recipeDao.getAll();
         for (Recipes recipeName : matchingRecipe) {

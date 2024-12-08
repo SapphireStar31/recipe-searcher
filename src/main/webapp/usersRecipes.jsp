@@ -23,7 +23,7 @@
             <c:forEach var="recipes" items="${userRecipes}">
                 <tr>
                     <td>${recipes.recipeName}</td>
-                    <td><a href="#">Edit</a></td>
+                    <td><a href="edit-recipe-info?recipeToEditID=${recipes.recipeNameID}">Edit</a></td>
                     <td><a href="delete-recipe?recipeToDeleteID=${recipes.recipeNameID}">Delete</a></td>
                 </tr>
             </c:forEach>

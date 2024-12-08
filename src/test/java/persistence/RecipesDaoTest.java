@@ -8,6 +8,8 @@ import org.apache.logging.log4j.Logger;
 import utilities.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -110,6 +112,96 @@ class RecipesDaoTest {
         Recipes recipeToUpdate = (Recipes)recipeDao.getById(1);
         recipeToUpdate.setRecipeName("Skinny Pancakes");
         recipeDao.update(recipeToUpdate);
+        Recipes updatedRecipe = (Recipes)recipeDao.getById(1);
+        assertEquals("Skinny Pancakes", updatedRecipe.getRecipeName());
+    }
+
+    @Test
+    void updateWithIngredients() {
+        Recipes recipeToUpdate = (Recipes)recipeDao.getById(1);
+        recipeToUpdate.setRecipeName("Skinny Pancakes");
+
+        Set<Ingredients> listOfIngredients = new HashSet<Ingredients>();
+        Ingredients newIngredient1 = new Ingredients("Chocolate");
+        Ingredients newIngredient2 = new Ingredients("Fluffy Flour");
+
+        int insertedIngredient1 = ingredientDao.insert(newIngredient1);
+        int insertedIngredient2 = ingredientDao.insert(newIngredient2);
+
+        listOfIngredients.add((Ingredients)ingredientDao.getById(insertedIngredient1));
+        listOfIngredients.add((Ingredients)ingredientDao.getById(insertedIngredient2));
+
+        recipeToUpdate.setIngredients(listOfIngredients);
+
+        recipeDao.update(recipeToUpdate);
+        Recipes updatedRecipe = (Recipes)recipeDao.getById(1);
+        assertEquals("Skinny Pancakes", updatedRecipe.getRecipeName());
+    }
+
+    @Test
+    void updateWithTwoIngredientsFromDatabase() {
+        Recipes recipeToUpdate = (Recipes)recipeDao.getById(1);
+        recipeToUpdate.setRecipeName("Skinny Pancakes");
+
+        Set<Ingredients> listOfIngredients = new HashSet<>();
+
+        //
+        Ingredients databaseIngredient = (Ingredients)ingredientDao.getById(17);
+        Ingredients databaseIngredient2 = (Ingredients)ingredientDao.getById(1);
+        listOfIngredients.add(databaseIngredient);
+        listOfIngredients.add(databaseIngredient2);
+        recipeToUpdate.setIngredients(listOfIngredients);
+        recipeDao.update(recipeToUpdate);
+        //
+
+        Recipes updatedRecipe = (Recipes)recipeDao.getById(1);
+        assertEquals("Skinny Pancakes", updatedRecipe.getRecipeName());
+    }
+
+    @Test
+    void updateWithOldAndNewIngredients() {
+        Recipes recipeToUpdate = (Recipes)recipeDao.getById(1);
+        recipeToUpdate.setRecipeName("Skinny Pancakes");
+
+        boolean inDatabase = false;
+        int loopNumber = 0;
+        Set<Ingredients> listOfIngredients = new HashSet<Ingredients>();
+
+        List<Ingredients> allIngredients = ingredientDao.getAll();
+        int insertedIngredient = 0;
+        List<String> sentIngredients = new ArrayList<>();
+
+        sentIngredients.add("Black Pepper");
+        sentIngredients.add("Salt");
+        sentIngredients.add("Test Ingredient 1");
+        sentIngredients.add("Honey");
+        sentIngredients.add("Test New 2");
+
+        for (String ingredientName : sentIngredients) {
+            Ingredients newIngredient = new Ingredients(ingredientName);
+
+            // TEST IF IN DATABASE OR NOT
+            for (Ingredients currentIngredient : allIngredients) {
+                if (newIngredient.getIngredientName().equals(currentIngredient.getIngredientName())) {
+                    newIngredient = currentIngredient;
+                    insertedIngredient = newIngredient.getIngredientID();
+                    inDatabase = true;
+                }
+            }
+            if (!inDatabase) {
+                insertedIngredient = ingredientDao.insert(newIngredient);
+            }
+
+            listOfIngredients.add((Ingredients)ingredientDao.getById(insertedIngredient));
+
+            loopNumber++;
+            inDatabase = false;
+        }
+
+        recipeToUpdate.setIngredients(listOfIngredients);
+
+        recipeDao.update(recipeToUpdate);
+
         Recipes updatedRecipe = (Recipes)recipeDao.getById(1);
         assertEquals("Skinny Pancakes", updatedRecipe.getRecipeName());
     }
