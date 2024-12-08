@@ -16,14 +16,14 @@
 
         <form id="addRecipeForm" method="post" action="add-recipe">
             <label for="recipeName">Recipe Name</label>
-            <input type="text" id="recipeName" name="recipeName">
+            <input type="text" id="recipeName" name="recipeName" required>
 
             <fieldset>
                 <legend>Ingredients in Recipe</legend>
 
                 <div id="ingredientInputField">
                     <label for="ingredient1">Ingredient Name</label>
-                    <input type="text" id="ingredient1" name="ingredient1">
+                    <input type="text" id="ingredient1" name="ingredient1" required>
                 </div>
             </fieldset>
             <br>
