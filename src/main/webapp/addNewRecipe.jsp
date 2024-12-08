@@ -3,12 +3,9 @@
 <html lang="en">
     <c:import url="head.jsp"/>
 
-    <%
-        String userName = (String)session.getAttribute("userName");
-        if (userName == null) {
-            response.sendRedirect("error.jsp");
-        }
-    %>
+    <c:if test="${empty userInfo}">
+        <c:redirect url="error.jsp"/>
+    </c:if>
 
     <body>
         <header>
@@ -33,8 +30,8 @@
             <input type="submit">
         </form>
         <br>
-        <button onclick="addInputField()">Add Input Field</button>
-        <button onclick="removeInputField()">Remove Input Field</button>
+        <button onclick="addInputField()">Add Another Ingredient</button>
+        <button onclick="removeInputField()">Remove Last Ingredient</button>
 
 
 

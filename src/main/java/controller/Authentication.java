@@ -75,6 +75,7 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        GenericDao userDao = new GenericDao<>(UserInformation.class);
         String authCode = req.getParameter("code");
         List<String> returnedAttribute = new ArrayList<>();
         String userName = null;
@@ -97,7 +98,7 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
                 session.setAttribute("userName", userName);
                 session.setAttribute("fullName", fullName);
                 session.setAttribute("userEmail", userEmail);
-                session.setAttribute("userID", userID);
+                session.setAttribute("userInfo", userDao.getById(Integer.parseInt(userID)));
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");

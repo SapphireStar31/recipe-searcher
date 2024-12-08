@@ -80,9 +80,7 @@ public class AddRecipe extends HttpServlet {
         newRecipe.setIngredients(listOfIngredients);
 
         // SET USER INFORMATION
-        String retrievedUserID = (String)session.getAttribute("userID");
-        int userID = Integer.parseInt(retrievedUserID);
-        UserInformation userCreatingRecipe = (UserInformation)userDao.getById(userID);
+        UserInformation userCreatingRecipe = (UserInformation)session.getAttribute("userInfo");
         newRecipe.setUserInformation(userCreatingRecipe);
 
         // FINALLY INSERT THE NEW RECIPE
