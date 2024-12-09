@@ -1,11 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-    <c:import url="head.jsp"/>
-
     <c:if test="${empty userInfo}">
         <c:redirect url="error.jsp"/>
     </c:if>
+
+    <head>
+        <c:import url="head.jsp"/>
+        <title>Edit Recipe</title>
+    </head>
 
     <body>
         <header>

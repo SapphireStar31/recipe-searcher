@@ -1,0 +1,30 @@
+/*
+    Author: Karissa Halverson
+    Date: 12/08/2024
+*/
+#addRecipeForm {
+    margin: 0 auto;
+    padding: .6em 1em 1em;
+    background-color: white;
+    border: black thin solid;
+    border-radius: 1em;
+}
+
+fieldset {
+    margin: 0 auto;
+    padding: 1em 0 0;
+}
+
+.sameWidth {
+    display: inline-block;
+    width: 140px;
+    margin: 1em 0;
+}
+
+.buttonCenter {
+    text-align: center;
+}
+
+.javaBtn {
+    margin: 0 .8em;
+}

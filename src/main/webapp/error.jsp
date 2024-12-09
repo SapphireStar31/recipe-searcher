@@ -1,7 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-    <c:import url="head.jsp"/>
+    <head>
+        <c:import url="head.jsp"/>
+        <title>Error</title>
+    </head>
 
     <body>
         <header>
