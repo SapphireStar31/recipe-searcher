@@ -7,7 +7,7 @@
 
     <head>
         <c:import url="templates/head.jsp"/>
-        <link rel="stylesheet" href="css/addNewRecipe.css">
+        <link rel="stylesheet" href="css/recipeForms.css">
         <title>Add New Recipe</title>
     </head>
 
@@ -18,7 +18,7 @@
             <h1>Add a New Recipe</h1>
         </header>
 
-        <form id="addRecipeForm" method="post" action="add-recipe">
+        <form id="recipeForm" method="post" action="add-recipe">
             <label for="recipeName" class="sameWidth">Recipe Name</label>
             <input type="text" id="recipeName" name="recipeName" required>
 
@@ -44,41 +44,7 @@
 
 
 
-        <script>
-            function addInputField() {
-                const myForm = document.getElementById("addRecipeForm");
-                const formLength = myForm.length - 2;
-                const ingredientNumberName = "ingredient" + formLength;
-
-                const inputField = document.getElementById("ingredientInputField");
-
-                const newLabelField = document.createElement("label");
-                newLabelField.setAttribute("for", ingredientNumberName);
-                newLabelField.setAttribute("class", "sameWidth")
-                newLabelField.textContent = "Ingredient " + formLength;
-
-                const newInputField = document.createElement("input");
-                newInputField.setAttribute("type", "text");
-                newInputField.setAttribute("id", ingredientNumberName);
-                newInputField.setAttribute("name", ingredientNumberName);
-
-                const addLineBreak = document.createElement("br");
-
-                inputField.appendChild(newLabelField);
-                inputField.appendChild(newInputField);
-                inputField.appendChild(addLineBreak);
-            }
-        </script>
-        <script>
-            function removeInputField() {
-                const formInputField = document.getElementById("ingredientInputField");
-                if (formInputField.children.length > 3) {
-                    formInputField.removeChild(formInputField.lastChild);
-                    formInputField.removeChild(formInputField.lastChild);
-                    formInputField.removeChild(formInputField.lastChild);
-                }
-            }
-        </script>
+        <script src="javascript/addRemoveInputFormFields.js"></script>
         <c:import url="templates/footer.jsp"/>
     </body>
 </html>

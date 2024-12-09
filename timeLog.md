@@ -4,7 +4,7 @@ Week 1
 <br>
 8/31/2024 - Spent time setting up my computer for the course, taking care of the starting tasks, and downloading applications. Spent about 4 hours on it.
 <br>
-9/1/2024 - Installed the applications the rest of the way and applied for Github student account. Did week 1's activity 1 and 2 as well as the exercise. Spent about 8 hours on it.
+9/1/2024 - Installed the applications the rest of the way and applied for GitHub student account. Did week 1's activity 1 and 2 as well as the exercise. Spent about 8 hours on it.
 <br>
 <br>
 Week 2
@@ -25,7 +25,7 @@ Week 3
 <br>
 Week 4
 <br>
-9/18/2024 - Updated Timelog. Completed checkpoint 1 to dos with problem statement, user stories, project plan (still needs to be hammered out in more detail), and screen design. Spent around 4 hours on it.
+9/18/2024 - Updated Time log. Completed checkpoint 1 to dos with problem statement, user stories, project plan (still needs to be hammered out in more detail), and screen design. Spent around 4 hours on it.
 <br>
 9/19/2024 - Watched week 4 videos, read the references, and coded along with the demo. Started working on exercise 4. Spent about 6 hours on it.
 <br>
@@ -53,7 +53,7 @@ Week 6
 <br>
 10/5/2024 - Finished the designs on the Pure page and updated normal HTML page to be like the Pure CSS page. Recorded the presentation and posted it to the Slack channel. Spent 6 hours on it.
 <br>
-10/6/2024 - Added some more details to the database for the Individual project and typed code to create it. Updated Timelog.
+10/6/2024 - Added some more details to the database for the Individual project and typed code to create it. Updated Time log.
 <br>
 <br>
 Week 7
@@ -84,7 +84,7 @@ Week 9
 <br>
 10/26/2024 - Started working on writing the rest of my tests for my individual project. Had meeting for the team project with my teammates. Brainstormed ideas and set up team project repository. Spent about 4 hours working and meeting up.
 <br>
-10/27/2024 - Wrote new method in individual project Generic Dao and created tests for it. Created JSP pages for search results and added servlets for searching. Updated Timelog and Project Plan. Spent about 5 hours on it.
+10/27/2024 - Wrote new method in individual project Generic Dao and created tests for it. Created JSP pages for search results and added servlets for searching. Updated Time log and Project Plan. Spent about 5 hours on it.
 <br>
 <br>
 Week 10
@@ -95,7 +95,7 @@ Week 11
 <br>
 Week 12
 <br>
-11/12/2024 - Fixed up and added some testing for both the Ingredient and Recipe entities. Created an ERD exampling what this will look like with User table. Added in pages for viewing all recipes and ingredients. Started adding in pages for adding a new recipe. Updated Timelog. Spent about 5 hours on it.
+11/12/2024 - Fixed up and added some testing for both the Ingredient and Recipe entities. Created an ERD exampling what this will look like with User table. Added in pages for viewing all recipes and ingredients. Started adding in pages for adding a new recipe. Updated Time log. Spent about 5 hours on it.
 <br>
 <br>
 Week 13
@@ -106,7 +106,7 @@ Week 13
 <br>
 11/23/2024 - Worked on linking up Cognito User Pool with application. Spent about 4 hours on it.
 <br>
-11/24/2024 - Finished linking Cognito up with project. Worked on fixing HTML and adding in CSS with Bootstrap and personal CSS. Updated Timelog. Spent about 6 hours on it.
+11/24/2024 - Finished linking Cognito up with project. Worked on fixing HTML and adding in CSS with Bootstrap and personal CSS. Updated Time log. Spent about 6 hours on it.
 <br>
 <br>
 Week 14
@@ -117,8 +117,20 @@ Week 14
 <br>
 11/30/2024 - Continued work with adding the API to the project. Created pages to show each recipe and related information on it. Updated Project Plan. Spent about 6 hours on it.
 <br>
+12/1/2024 - Added in session attributes so users not logged in can't get to certain pages. Added in pages for adding a new recipe with ingredients not being duplicated and users attached to the recipe they make. Spent about 6 hours on it.
+<br>
 <br>
 Week 15
 <br>
+12/3/2024 - Worked on doing a peer review for Dmitrii. Spent about 2 hours on it.
+<br>
+12/4/2024 - Worked on fixing the adding a new recipe page. Added in a success page if a recipe addition is successful. Spent about 4 hours on it.
+<br>
+12/7/2024 - Updated session attributes, updated user authorized pages, added in a page for users to see what recipes they have created, added in deletion capability, and started work on updating recipes. Spent about 7 hours on it.
+<br>
+12/8/2024 - Finished the updating recipes code and started to add in more CSS and styling on pages. Spent about 5 hours on it.
+<br>
 <br>
 Week 16
+<br>
+12/9/2024 - Added in more CSS and updated webapp folders to have a Javascript and Template folder for files. Updated time log.
