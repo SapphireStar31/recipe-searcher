@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <c:import url="head.jsp"/>
+        <c:import url="templates/head.jsp"/>
         <title>${recipeInfo.recipeName} Information</title>
     </head>
 
     <body>
         <header>
-            <c:import url="navigation.jsp"/>
-            <c:import url="searchBar.jsp"/>
+            <c:import url="templates/navigation.jsp"/>
+            <c:import url="templates/searchBar.jsp"/>
             <h1>Recipe Information</h1>
         </header>
 
@@ -32,6 +32,6 @@
                 </c:forEach>
             </ul>
         </main>
-        <c:import url="footer.jsp"/>
+        <c:import url="templates/footer.jsp"/>
     </body>
 </html>

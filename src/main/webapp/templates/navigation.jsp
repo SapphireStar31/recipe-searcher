@@ -6,7 +6,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="index.jsp">Homepage</a>
+                <a class="nav-link" href="../index.jsp">Homepage</a>
                 <a class="nav-link" href="all-recipes">All Recipes</a>
                 <a class="nav-link" href="all-ingredients">All Ingredients</a>
                 <c:choose>
@@ -14,9 +14,9 @@
                         <a class="nav-link" href="log-in">Log in/Sign Up</a>
                     </c:when>
                     <c:otherwise>
-                        <a class="nav-link" href="addNewRecipe.jsp">Add a New Recipe</a>
+                        <a class="nav-link" href="../addNewRecipe.jsp">Add a New Recipe</a>
                         <a class="nav-link" href="user-recipes">${userName} Recipes</a>
-                        <a class="nav-link" href="log-out">Log out here</a>
+                        <a class="nav-link" href="log-out">Log Out</a>
                     </c:otherwise>
                 </c:choose>
             </div>

@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <c:import url="head.jsp"/>
+        <c:import url="templates/head.jsp"/>
         <title>Home - Recipe Searcher</title>
     </head>
 
     <body>
         <header>
-            <c:import url="navigation.jsp"/>
+            <c:import url="templates/navigation.jsp"/>
             <c:choose>
                 <c:when test="${empty userName}">
                     <h1>Welcome!</h1>
@@ -63,6 +63,6 @@
             <p>Want to browse all ingredients then you can look here: <a href="all-ingredients">All Ingredients</a></p>
             <br><br>
         </main>
-        <c:import url="footer.jsp"/>
+        <c:import url="templates/footer.jsp"/>
     </body>
 </html>
