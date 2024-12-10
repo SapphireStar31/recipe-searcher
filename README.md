@@ -39,5 +39,8 @@ Creating an easy to navigate site that holds different recipes with their common
 - [Project Plan](DesignDocuments/projectPlan.md)
 - [Time Log](timeLog.md)
 
+## Presentation
+- [Individual Project Presentation](DesignDocuments/individualProjectPresentation.mp4)
+
 ## Version 2 Plan
 - [Version 2 Plan](DesignDocuments/version2Plan.md)
