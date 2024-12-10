@@ -33,4 +33,11 @@ Creating an easy to navigate site that holds different recipes with their common
   - JUnit tests to cover all testable logic
 - IDE: IntelliJ IDEA
 
+## Project Documents
+- [Database Diagram](DesignDocuments/databaseDiagram.png)
+- [User Stories](DesignDocuments/userStories.md)
+- [Project Plan](DesignDocuments/projectPlan.md)
+- [Time Log](timeLog.md)
 
+## Version 2 Plan
+- [Version 2 Plan](DesignDocuments/version2Plan.md)

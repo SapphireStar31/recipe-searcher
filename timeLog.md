@@ -133,4 +133,6 @@ Week 15
 <br>
 Week 16
 <br>
-12/9/2024 - Added in more CSS and updated webapp folders to have a Javascript and Template folder for files. Updated time log.
+12/9/2024 - Added in more CSS and updated webapp folders to have a Javascript and Template folder for files. Fixed code and javadocs in different files. Updated time log. Spent about 6 hours on it.
+<br>
+12/10/2024 - Added version 2 documentation and updated documents. Recorded video and turned in project. Spent about 2 hours on it.

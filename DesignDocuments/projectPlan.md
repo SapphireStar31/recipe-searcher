@@ -93,13 +93,13 @@ Work on User stories:
 - [X] Add deployed link to indie project list in student repo
 
 ### Week 15
-- [ ] Implement Feedback from Week 14 review
-- [ ] Final Presentation
+- [X] Implement Feedback from Week 14 review
+- [X] Final Presentation
 - [ ] Create video, add video link to readme.md
 - [ ] Finalize all documentation
 - [ ] Code quality check
-- [ ] Weekly journal entry
+- [X] Weekly journal entry
 
 ### Week 16
-- [ ] Weekly journal entry
+- [X] Weekly journal entry
 - [ ] Final touches before code complete
