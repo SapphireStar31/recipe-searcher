@@ -5,8 +5,28 @@
 body {
     width: 70%;
     margin: 1em auto;
+    padding: 2.8em 0;
+    line-height: 1.8em;
 }
 
 p {
     margin: 0;
+}
+
+nav {
+    background-color: #e3f2fd;
+}
+
+p, ol li, ul li {
+    font-size: 1.05em;
+    letter-spacing: .7px;
+}
+
+.navWidth {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.centerText {
+    text-align: center;
 }

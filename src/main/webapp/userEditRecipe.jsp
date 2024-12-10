@@ -18,32 +18,34 @@
             <h1>Edit Recipe</h1>
         </header>
 
-        <form id="recipeForm" method="get" action="update-recipe">
-            <label for="recipeName" class="sameWidth">Recipe Name</label>
-            <input type="text" id="recipeName" name="recipeName" value="${recipeInfo.recipeName}" required>
+        <div class="fullForm">
+            <form id="recipeForm" method="get" action="update-recipe">
+                <label for="recipeName" class="sameWidth">Recipe Name</label>
+                <input type="text" id="recipeName" name="recipeName" value="${recipeInfo.recipeName}" required>
 
-            <fieldset>
-                <legend>Ingredients in Recipe</legend>
+                <fieldset>
+                    <legend>Ingredients in Recipe</legend>
 
-                <div id="ingredientInputField">
-                    <c:set var="loopCount" value="1"/>
-                    <c:forEach var="ingredients" items="${recipeInfo.ingredients}">
-                        <label for="ingredient${loopCount}" class="sameWidth">Ingredient ${loopCount}</label>
-                        <input type="text" id="ingredient${loopCount}" name="ingredient${loopCount}" value="${ingredients.ingredientName}" required>
-                        <br>
-                        <c:set var="loopCount" value="${loopCount + 1}"/>
-                    </c:forEach>
+                    <div id="ingredientInputField">
+                        <c:set var="loopCount" value="1"/>
+                        <c:forEach var="ingredients" items="${recipeInfo.ingredients}">
+                            <label for="ingredient${loopCount}" class="sameWidth">Ingredient ${loopCount}</label>
+                            <input type="text" id="ingredient${loopCount}" name="ingredient${loopCount}" value="${ingredients.ingredientName}" required>
+                            <br>
+                            <c:set var="loopCount" value="${loopCount + 1}"/>
+                        </c:forEach>
+                    </div>
+                </fieldset>
+                <br>
+                <div class="buttonCenter">
+                    <input class="btn btn-success btn-large" type="submit">
                 </div>
-            </fieldset>
+            </form>
             <br>
             <div class="buttonCenter">
-                <input class="btn btn-success btn-large" type="submit">
+                <button onclick="addInputField()" class="btn btn-primary javaBtn">Add Another Ingredient</button>
+                <button onclick="removeInputField()" class="btn btn-danger javaBtn">Remove Last Ingredient</button>
             </div>
-        </form>
-        <br>
-        <div class="buttonCenter">
-            <button onclick="addInputField()" class="btn btn-primary javaBtn">Add Another Ingredient</button>
-            <button onclick="removeInputField()" class="btn btn-danger javaBtn">Remove Last Ingredient</button>
         </div>
 
 

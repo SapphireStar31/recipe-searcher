@@ -18,28 +18,30 @@
             <h1>Add a New Recipe</h1>
         </header>
 
-        <form id="recipeForm" method="post" action="add-recipe">
-            <label for="recipeName" class="sameWidth">Recipe Name</label>
-            <input type="text" id="recipeName" name="recipeName" required>
+        <div class="fullForm">
+            <form id="recipeForm" method="post" action="add-recipe">
+                <label for="recipeName" class="sameWidth">Recipe Name</label>
+                <input type="text" id="recipeName" name="recipeName" required>
 
-            <fieldset>
-                <legend>Ingredients in Recipe</legend>
+                <fieldset>
+                    <legend>Ingredients in Recipe</legend>
 
-                <div id="ingredientInputField">
-                    <label for="ingredient1" class="sameWidth">Ingredient Name</label>
-                    <input type="text" id="ingredient1" name="ingredient1" required>
-                    <br>
+                    <div id="ingredientInputField">
+                        <label for="ingredient1" class="sameWidth">Ingredient Name</label>
+                        <input type="text" id="ingredient1" name="ingredient1" required>
+                        <br>
+                    </div>
+                </fieldset>
+                <br>
+                <div class="buttonCenter">
+                    <input class="btn btn-success btn-large" type="submit">
                 </div>
-            </fieldset>
+            </form>
             <br>
             <div class="buttonCenter">
-                <input class="btn btn-success btn-large" type="submit">
+                <button onclick="addInputField()" class="btn btn-primary javaBtn">Add Another Ingredient</button>
+                <button onclick="removeInputField()" class="btn btn-danger javaBtn">Remove Last Ingredient</button>
             </div>
-        </form>
-        <br>
-        <div class="buttonCenter">
-            <button onclick="addInputField()" class="btn btn-primary javaBtn">Add Another Ingredient</button>
-            <button onclick="removeInputField()" class="btn btn-danger javaBtn">Remove Last Ingredient</button>
         </div>
 
 

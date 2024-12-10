@@ -6,7 +6,6 @@
     margin: 0 auto;
     padding: .6em 1em 1em;
     background-color: white;
-    border: black thin solid;
     border-radius: 1em;
 }
 
@@ -27,4 +26,8 @@ fieldset {
 
 .javaBtn {
     margin: 0 .8em;
+}
+
+.fullForm {
+    border: black thin solid;
 }

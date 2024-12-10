@@ -24,7 +24,7 @@
                     <td>
                         <ul>
                             <c:forEach var="recipes" items="${ingredients.recipes}">
-                                <li>${recipes.recipeName}</li>
+                                <li><a href="recipe-information?recipeName=${recipes.recipeName}">${recipes.recipeName}</a></li>
                             </c:forEach>
                         </ul>
                     </td>
