@@ -14,7 +14,8 @@
         </header>
 
         <h2>Looks like we already have this recipe in our database.</h2>
-        <p>If you give a search through the database you can see what the other recipe looks like. If you find something you want to add to that recipe you can edit it as long as you are logged in.</p>
+        <p>If you give a search through the database you can see what the other recipe looks like.</p>
+        <p>In the future we plan on updating it so you can add ingredients to a recipe even if you didn't create it.</p>
         <c:import url="templates/footer.jsp"/>
     </body>
 </html>

@@ -10,21 +10,18 @@
         <header>
             <c:import url="templates/navigation.jsp"/>
             <c:import url="templates/searchBar.jsp"/>
-            <h1>Recipe Information</h1>
+            <h1>${recipeInfo.recipeName}</h1>
         </header>
 
         <main>
-            <h2>${recipeInfo.recipeName}</h2>
-
-            <h3>Ingredients</h3>
+            <hr>
+            <h2>Ingredients</h2>
             <ul>
                 <c:forEach var="ingredients" items="${recipeInfo.ingredients}">
                     <li>${ingredients.ingredientName}</li>
                 </c:forEach>
             </ul>
-
-            <br><br>
-
+            <br>
             <h3>Some similar recipes:</h3>
             <ul>
                 <c:forEach var="apiSearchInfo" items="${apiSearchInfo}">
