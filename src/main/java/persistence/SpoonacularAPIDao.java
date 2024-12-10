@@ -19,6 +19,7 @@ import org.apache.logging.log4j.Logger;
 public class SpoonacularAPIDao implements PropertiesLoader {
     private final Logger logger = LogManager.getLogger(this.getClass());
     Properties properties;
+    String SPOONACULAR_URL;
     String API_KEY;
     String NUMBER_OF_SEARCH_RESULTS;
     String SORT_CRITERIA;
@@ -35,8 +36,7 @@ public class SpoonacularAPIDao implements PropertiesLoader {
         String encodedSearch = URLEncoder.encode(searchQuery, StandardCharsets.UTF_8);
         Client client = ClientBuilder.newClient();
         WebTarget target =
-                client.target("https://api.spoonacular.com/recipes/complexSearch?"
-                        + "apiKey=" + API_KEY
+                client.target(SPOONACULAR_URL + "apiKey=" + API_KEY
                         + "&query=" + encodedSearch
                         + "&number=" + NUMBER_OF_SEARCH_RESULTS
                         + "&sort=" + SORT_CRITERIA);
@@ -61,13 +61,14 @@ public class SpoonacularAPIDao implements PropertiesLoader {
     private void loadProperties() {
         try {
             properties = loadProperties("/spoonacularapi.properties");
+            SPOONACULAR_URL = properties.getProperty("spoonacular.url");
             API_KEY = properties.getProperty("api.key");
             NUMBER_OF_SEARCH_RESULTS = properties.getProperty("number.of.results.to.return");
             SORT_CRITERIA = properties.getProperty("sort.criteria");
         } catch (IOException ioException) {
-            logger.error("Cannot load properties..." + ioException.getMessage(), ioException);
+            logger.error("Cannot load properties...{}", ioException.getMessage(), ioException);
         } catch (Exception e) {
-            logger.error("Error loading properties" + e.getMessage(), e);
+            logger.error("Error loading properties {}", e.getMessage(), e);
         }
     }
 }

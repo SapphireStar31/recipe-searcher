@@ -1,6 +1,8 @@
 package controller;
 
 import entity.Recipes;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 import persistence.SpoonacularAPIDao;
 import javax.servlet.RequestDispatcher;
@@ -25,6 +27,8 @@ import java.util.List;
 )
 
 public class RecipeInformation extends HttpServlet {
+    private final Logger logger = LogManager.getLogger(this.getClass());
+
     /**
      * This method will handle HTTP GET requests.
      * @param request the HttpServletRequest object
@@ -42,7 +46,12 @@ public class RecipeInformation extends HttpServlet {
         Recipes requestedRecipe = findRecipe.get(0);
 
         request.setAttribute("recipeInfo", requestedRecipe);
-        request.setAttribute("apiSearchInfo", apiDAO.searchAndGetResults(recipeName));
+        try {
+            request.setAttribute("apiSearchInfo", apiDAO.searchAndGetResults(recipeName));
+        } catch (RuntimeException e) {
+            logger.error("Error processing and running JSON...{}", e.getMessage(), e);
+        }
+
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/detailedRecipeInfo.jsp");
         dispatcher.forward(request, response);
