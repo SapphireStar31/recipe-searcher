@@ -3,8 +3,13 @@ package spoonacularapi;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * This class holds information about the results returned from
+ * searching the Spoonacular API.
+ *
+ * @author Karissa
+ */
 public class ComplexSearch {
-
 	@JsonProperty("number")
 	private int number;
 

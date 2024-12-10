@@ -37,7 +37,6 @@ public class SessionFactoryProvider {
 
     /**
      * Gets session factory.
-     *
      * @return the session factory
      */
     public static SessionFactory getSessionFactory() {

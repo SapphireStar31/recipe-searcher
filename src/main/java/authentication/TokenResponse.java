@@ -2,8 +2,10 @@ package authentication;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * This class will get the token response information from Cognito.
+ */
 public class TokenResponse {
-
     @JsonProperty("access_token")
     private String accessToken;
 

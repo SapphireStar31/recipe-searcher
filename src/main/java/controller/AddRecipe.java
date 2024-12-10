@@ -94,7 +94,7 @@ public class AddRecipe extends HttpServlet {
      * This method will figure out if the ingredient is in the database and
      * if it isn't it will add it.
      * @param sentIngredient the ingredient we are checking
-     * return the ingredient that is a part of the recipe
+     * @return the ingredient that is a part of the recipe
      */
     private Ingredients addIngredientToDatabase(String sentIngredient) {
         // GET ALL RECORDS FROM DATABASE

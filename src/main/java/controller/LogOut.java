@@ -15,7 +15,7 @@ import java.util.Properties;
 
 
 /**
- * Begins the log-out process using AWS Cognito
+ * Begins the log-out process using AWS Cognito.
  *
  * @author Karissa
  */
@@ -38,7 +38,7 @@ public class LogOut extends HttpServlet implements PropertiesLoader {
 
     /**
      * Read in the cognito props file and get the client id and required urls
-     * for authenticating a user.
+     * for logging out a user.
      */
     // 4 to do this work a single time and put the properties in the application scope
     private void loadProperties() {
@@ -48,14 +48,14 @@ public class LogOut extends HttpServlet implements PropertiesLoader {
             LOGOUT_URL = properties.getProperty("logoutURL");
             REDIRECT_URL = properties.getProperty("logoutURI");
         } catch (IOException ioException) {
-            logger.error("Cannot load properties..." + ioException.getMessage(), ioException);
+            logger.error("Cannot load properties...{}", ioException.getMessage(), ioException);
         } catch (Exception e) {
-            logger.error("Error loading properties" + e.getMessage(), e);
+            logger.error("Error loading properties{}", e.getMessage(), e);
         }
     }
 
     /**
-     * Route to the aws-hosted cognito login page.
+     * Route to the aws-hosted cognito log out page.
      * @param req servlet request
      * @param resp servlet response
      * @throws ServletException

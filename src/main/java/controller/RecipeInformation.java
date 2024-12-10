@@ -3,7 +3,6 @@ package controller;
 import entity.Recipes;
 import persistence.GenericDao;
 import persistence.SpoonacularAPIDao;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

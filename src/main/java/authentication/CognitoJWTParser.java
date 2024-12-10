@@ -1,16 +1,13 @@
 package authentication;
 
-/*
-// Copyright 2013-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-// SPDX-License-Identifier: MIT-0
+/**
+ * Copyright 2013-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: MIT-0
  */
-
-
 import java.util.Base64;
 import java.util.Base64.Encoder;
 import java.util.Base64.Decoder;
 import org.json.JSONObject;
-
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidParameterException;
 
@@ -25,7 +22,6 @@ public class CognitoJWTParser {
 
     /**
      * Returns header for a JWT as a JSON object.
-     *
      * @param jwt REQUIRED: valid JSON Web Token as String.
      * @return header as a JSONObject.
      */
@@ -45,7 +41,6 @@ public class CognitoJWTParser {
 
     /**
      * Returns payload of a JWT as a JSON object.
-     *
      * @param jwt REQUIRED: valid JSON Web Token as String.
      * @return payload as a JSONObject.
      */
@@ -66,7 +61,6 @@ public class CognitoJWTParser {
 
     /**
      * Returns signature of a JWT as a String.
-     *
      * @param jwt REQUIRED: valid JSON Web Token as String.
      * @return signature as a String.
      */
@@ -83,7 +77,6 @@ public class CognitoJWTParser {
 
     /**
      * Returns a claim, from the {@code JWT}s' payload, as a String.
-     *
      * @param jwt   REQUIRED: valid JSON Web Token as String.
      * @param claim REQUIRED: claim name as String.
      * @return claim from the JWT as a String.
@@ -105,7 +98,6 @@ public class CognitoJWTParser {
 
     /**
      * Checks if {@code JWT} is a valid JSON Web Token.
-     *
      * @param jwt REQUIRED: The JWT as a {@link String}.
      */
     public static void validateJWT(String jwt) {

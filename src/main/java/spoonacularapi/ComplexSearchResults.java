@@ -2,8 +2,13 @@ package spoonacularapi;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * This class holds information about the individual recipes returned
+ * from the search results.
+ *
+ * @author Karissa
+ */
 public class ComplexSearchResults {
-
 	@JsonProperty("image")
 	private String image;
 

@@ -11,8 +11,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.criteria.HibernateCriteriaBuilder;
 
 /**
- * A generic DAO somewhat inspired by http://rodrigouchoa.wordpress.com
- *
+ * A generic DAO somewhat inspired by http://rodrigouchoa.wordpress.com.
  */
 public class GenericDao<T> {
     private Class<T> type;
@@ -21,7 +20,6 @@ public class GenericDao<T> {
 
     /**
      * Instantiates a new Generic dao.
-     *
      * @param type the entity type, for example, User.
      */
     public GenericDao(Class<T> type) {
@@ -31,7 +29,6 @@ public class GenericDao<T> {
 
     /**
      * Gets all entities
-     *
      * @return the all entities
      */
     public List<T> getAll() {
@@ -60,7 +57,6 @@ public class GenericDao<T> {
 
     /**
      * Deletes the entity.
-     *
      * @param entity entity to be deleted
      */
     public void delete(T entity) {
@@ -74,7 +70,6 @@ public class GenericDao<T> {
 
     /**
      * Inserts the entity.
-     *
      * @param entity entity to be inserted
      */
     public int insert(T entity) {
@@ -90,7 +85,6 @@ public class GenericDao<T> {
 
     /**
      * Inserts or updates the entity.
-     *
      * @param entity entity to be inserted/saved
      */
     public void update(T entity) {

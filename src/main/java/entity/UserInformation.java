@@ -36,14 +36,13 @@ public class UserInformation {
 
 
     /**
-     * Instantiates a new users information.
+     * Instantiates a new users' information.
      */
     public UserInformation() {
     }
 
     /**
-     * Instantiates a new users information.
-     *
+     * Instantiates a new users' information.
      * @param fullName the users full name
      * @param userEmail the users email
      * @param username the users username
@@ -55,10 +54,8 @@ public class UserInformation {
     }
 
 
-
     /**
      * Gets users ID number.
-     *
      * @return the user ID
      */
     public int getUserID() {
@@ -67,7 +64,6 @@ public class UserInformation {
 
     /**
      * Sets the users ID number.
-     *
      * @param userID the user ID number
      */
     public void setUserID(int userID) {
@@ -77,7 +73,6 @@ public class UserInformation {
 
     /**
      * Gets users full name.
-     *
      * @return the users full name
      */
     public String getFullName() {
@@ -86,7 +81,6 @@ public class UserInformation {
 
     /**
      * Sets the users full name.
-     *
      * @param fullName the users full name
      */
     public void setFullName(String fullName) {
@@ -96,7 +90,6 @@ public class UserInformation {
 
     /**
      * Gets users email address.
-     *
      * @return the users email
      */
     public String getUserEmail() {
@@ -105,7 +98,6 @@ public class UserInformation {
 
     /**
      * Sets the users email address.
-     *
      * @param userEmail the users email
      */
     public void setUserEmail(String userEmail) {
@@ -115,7 +107,6 @@ public class UserInformation {
 
     /**
      * Gets the users username.
-     *
      * @return the username
      */
     public String getUsername() {
@@ -124,7 +115,6 @@ public class UserInformation {
 
     /**
      * Sets the users username.
-     *
      * @param username the username
      */
     public void setUsername(String username) {
@@ -134,7 +124,6 @@ public class UserInformation {
 
     /**
      * Gets recipes associated with this user.
-     *
      * @return a list of recipes
      */
     public List<Recipes> getRecipes() {
@@ -143,7 +132,6 @@ public class UserInformation {
 
     /**
      * Sets recipes associated with this user.
-     *
      * @param recipes a list of recipes
      */
     public void setRecipes(List<Recipes> recipes) {

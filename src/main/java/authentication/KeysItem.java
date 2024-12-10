@@ -2,8 +2,10 @@ package authentication;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * This class holds the different parts of the Cognito key.
+ */
 public class KeysItem{
-
     @JsonProperty("kty")
     private String kty;
 

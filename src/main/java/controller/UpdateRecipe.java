@@ -2,7 +2,6 @@ package controller;
 
 import entity.Ingredients;
 import entity.Recipes;
-import entity.UserInformation;
 import persistence.GenericDao;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

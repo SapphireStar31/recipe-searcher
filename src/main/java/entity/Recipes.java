@@ -48,7 +48,6 @@ public class Recipes {
 
     /**
      * Instantiates a new Recipe with the recipe name.
-     *
      * @param recipeName the recipes name
      */
     public Recipes(String recipeName) {
@@ -57,7 +56,6 @@ public class Recipes {
 
     /**
      * Instantiates a new Recipe with the recipe name and user.
-     *
      * @param recipeName the recipes name
      * @param userInformation the user who created the recipe
      */

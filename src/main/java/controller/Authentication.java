@@ -66,14 +66,16 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
     }
 
     /**
-     * Gets the auth code from the request and exchanges it for a token containing user info.
+     * Gets the auth code from the request and exchanges it for a token
+     * containing user info.
      * @param req servlet request
      * @param resp servlet response
      * @throws ServletException
      * @throws IOException
      */
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         HttpSession session = req.getSession();
         GenericDao userDao = new GenericDao<>(UserInformation.class);
         String authCode = req.getParameter("code");
@@ -100,11 +102,11 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
                 session.setAttribute("userEmail", userEmail);
                 session.setAttribute("userInfo", userDao.getById(Integer.parseInt(userID)));
             } catch (IOException e) {
-                logger.error("Error getting or validating the token: " + e.getMessage(), e);
+                logger.error("Error getting or validating the token: {}", e.getMessage(), e);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
                 dispatcher.forward(req, resp);
             } catch (InterruptedException e) {
-                logger.error("Error getting token from Cognito oauth url " + e.getMessage(), e);
+                logger.error("Error getting token from Cognito oauth url {}", e.getMessage(), e);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/error.jsp");
                 dispatcher.forward(req, resp);
             }
@@ -115,7 +117,7 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
     }
 
     /**
-     * Sends the request for a token to Cognito and maps the response
+     * Sends the request for a token to Cognito and maps the response.
      * @param authRequest the request to the oauth2/token url in cognito
      * @return response from the oauth2/token endpoint which should include id token, access token and refresh token
      * @throws IOException
@@ -127,23 +129,21 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
 
         response = client.send(authRequest, HttpResponse.BodyHandlers.ofString());
 
-
-        logger.debug("Response headers: " + response.headers().toString());
-        logger.debug("Response body: " + response.body().toString());
+        logger.debug("Response headers: {}", response.headers().toString());
+        logger.debug("Response body: {}", response.body().toString());
 
         ObjectMapper mapper = new ObjectMapper();
         TokenResponse tokenResponse = mapper.readValue(response.body().toString(), TokenResponse.class);
-        logger.debug("Id token: " + tokenResponse.getIdToken());
+        logger.debug("Id token: {}", tokenResponse.getIdToken());
 
         return tokenResponse;
-
     }
 
     /**
-     * Get values out of the header to verify the token is legit. If it is legit, get the claims from it, such
-     * as username.
-     * @param tokenResponse
-     * @return
+     * Get values out of the header to verify the token is legit. If it is
+     * legit, get the claims from it.
+     * @param tokenResponse the token from Cognito
+     * @return a list of token claim information
      * @throws IOException
      */
     private List<String> validate(TokenResponse tokenResponse) throws IOException {
@@ -163,9 +163,9 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
         try {
             publicKey = KeyFactory.getInstance("RSA").generatePublic(new RSAPublicKeySpec(modulus, exponent));
         } catch (InvalidKeySpecException e) {
-            logger.error("Invalid Key Error " + e.getMessage(), e);
+            logger.error("Invalid Key Error {}", e.getMessage(), e);
         } catch (NoSuchAlgorithmException e) {
-            logger.error("Algorithm Error " + e.getMessage(), e);
+            logger.error("Algorithm Error {}", e.getMessage(), e);
         }
 
         // get an algorithm instance
@@ -205,8 +205,8 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
         return returnedAttributes;
     }
 
-    /** Create the auth url and use it to build the request.
-     *
+    /**
+     * Create the auth url and use it to build the request.
      * @param authCode auth code received from Cognito as part of the login process
      * @return the constructed oauth request
      */
@@ -233,12 +233,10 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
     }
 
     /**
-     * Gets the JSON Web Key Set (JWKS) for the user pool from cognito and loads it
-     * into objects for easier use.
-     *
+     * Gets the JSON Web Key Set (JWKS) for the user pool from cognito and
+     * loads it into objects for easier use.
      * JSON Web Key Set (JWKS) location: https://cognito-idp.{region}.amazonaws.com/{userPoolId}/.well-known/jwks.json
      * Demo url: https://cognito-idp.us-east-2.amazonaws.com/us-east-2_XaRYHsmKB/.well-known/jwks.json
-     *
      * @see Keys
      * @see KeysItem
      */
@@ -250,11 +248,11 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
             File jwksFile = new File("jwks.json");
             FileUtils.copyURLToFile(jwksURL, jwksFile);
             jwks = mapper.readValue(jwksFile, Keys.class);
-            logger.debug("Keys are loaded. Here's e: " + jwks.getKeys().get(0).getE());
+            logger.debug("Keys are loaded. Here's e: {}", jwks.getKeys().get(0).getE());
         } catch (IOException ioException) {
-            logger.error("Cannot load json..." + ioException.getMessage(), ioException);
+            logger.error("Cannot load json...{}", ioException.getMessage(), ioException);
         } catch (Exception e) {
-            logger.error("Error loading json" + e.getMessage(), e);
+            logger.error("Error loading json{}", e.getMessage(), e);
         }
     }
 
@@ -273,9 +271,9 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
             REGION = properties.getProperty("region");
             POOL_ID = properties.getProperty("poolId");
         } catch (IOException ioException) {
-            logger.error("Cannot load properties..." + ioException.getMessage(), ioException);
+            logger.error("Cannot load properties...{}", ioException.getMessage(), ioException);
         } catch (Exception e) {
-            logger.error("Error loading properties" + e.getMessage(), e);
+            logger.error("Error loading properties{}", e.getMessage(), e);
         }
     }
 
@@ -294,7 +292,7 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
         currentUser.setFullName(userAttributes.get(1));
         currentUser.setUserEmail(userAttributes.get(2));
 
-        // IF THE CURRENTUSER EMAIL IS IN THE DATABASE SKIP ADDING
+        // IF THE CURRENT USER EMAIL IS IN THE DATABASE SKIP ADDING
         List<UserInformation> allUsers = userInfoDao.getAll();
         for (UserInformation allUserInfo : allUsers) {
             databaseEmails.add(allUserInfo.getUserEmail());
@@ -312,7 +310,7 @@ public class Authentication extends HttpServlet implements PropertiesLoader {
 
     /**
      * Get users ID number for adding to session to track user.
-     * @param userEmail the users email thats trying to sign in or sign up
+     * @param userEmail the users email that's trying to sign in or sign up
      * @return the users ID number
      */
     private int getUsersIDNumber(String userEmail) {
