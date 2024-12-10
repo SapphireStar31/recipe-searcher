@@ -6,11 +6,8 @@ import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
@@ -49,18 +46,37 @@ public class AddRecipe extends HttpServlet {
             }
         }
 
-        String ingredientParameter = null;
-        boolean moreIngredients = true;
-        int loopNumber = 1;
-
         Recipes newRecipe = new Recipes();
-
-        Set<Ingredients> listOfIngredients = new HashSet<Ingredients>();
 
         // SET RECIPE NAME
         newRecipe.setRecipeName(request.getParameter("recipeName"));
 
         // SET INGREDIENTS
+        newRecipe.setIngredients(createIngredientList(request));
+
+        // SET USER INFORMATION
+        UserInformation userCreatingRecipe = (UserInformation)session.getAttribute("userInfo");
+        newRecipe.setUserInformation(userCreatingRecipe);
+
+        // FINALLY INSERT THE NEW RECIPE
+        recipeDao.insert(newRecipe);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/successfullyAdded.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    /**
+     * This method will loop through the ingredient form parameters and add
+     * them to the list of ingredients for the recipe.
+     * @param request the HttpServletRequest object
+     * @return a set of ingredients
+     */
+    private Set<Ingredients> createIngredientList(HttpServletRequest request) {
+        Set<Ingredients> listOfIngredients = new HashSet<Ingredients>();
+        int loopNumber = 1;
+        String ingredientParameter = null;
+        boolean moreIngredients = true;
+
         while (moreIngredients) {
             ingredientParameter = request.getParameter("ingredient" + loopNumber);
 
@@ -76,18 +92,8 @@ public class AddRecipe extends HttpServlet {
             }
         }
 
-        newRecipe.setIngredients(listOfIngredients);
-
-        // SET USER INFORMATION
-        UserInformation userCreatingRecipe = (UserInformation)session.getAttribute("userInfo");
-        newRecipe.setUserInformation(userCreatingRecipe);
-
-        // FINALLY INSERT THE NEW RECIPE
-        recipeDao.insert(newRecipe);
-
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/successfullyAdded.jsp");
-        dispatcher.forward(request, response);
+        logger.debug("Here is the final list of ingredients: {}", listOfIngredients);
+        return listOfIngredients;
     }
 
     /**
