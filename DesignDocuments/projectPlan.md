@@ -90,16 +90,7 @@ Work on User stories:
 - As a logged-in user, I want to be able to add ingredients to other recipes, so that if there are ingredients I use and not others I can add them.*
 
 - [X] Research possible Web Services/APIs to use
-- [ ] Add deployed link to indie project list in student repo
-
-
-### To be rearranged plans for the following weeks
-- User Stories to still be worked out:
-- As a user, I want to be able to report duplicate recipes, so that there aren't multiple of the same recipe I have to look through.*
-- As a college student, I want to be able to be able to go to a random recipe, so that even if I don't know any recipes I can find some random ones I might like.
-- As an admin, I want to be able to get reports that users make, so that I can see where issues are and fix them.*
-
-
+- [X] Add deployed link to indie project list in student repo
 
 ### Week 15
 - [ ] Implement Feedback from Week 14 review

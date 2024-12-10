@@ -11,7 +11,7 @@ Creating an easy to navigate site that holds different recipes with their common
 - Security/Authentication
   - AWS Cognito
 - Database
-  - MySQL 8.x
+  - MySQL 9.0.1
 - ORM Framework
   - Hibernate Version 6.4.3
 - Dependency Management
@@ -29,8 +29,6 @@ Creating an easy to navigate site that holds different recipes with their common
   - AWS
 - Tech I'd like to explore as part of this work
   - Hibernate Validator
-  - More TBD
-- Project Lombok
 - Unit Testing
   - JUnit tests to cover all testable logic
 - IDE: IntelliJ IDEA

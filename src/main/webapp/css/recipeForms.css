@@ -30,4 +30,9 @@ fieldset {
 
 .fullForm {
     border: black thin solid;
+    border-radius: 1em;
+}
+
+.inputButtonField {
+    padding: 1em 0;
 }

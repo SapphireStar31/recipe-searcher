@@ -37,14 +37,11 @@
                     <input class="btn btn-success btn-large" type="submit">
                 </div>
             </form>
-            <br>
-            <div class="buttonCenter">
+            <div class="buttonCenter inputButtonField">
                 <button onclick="addInputField()" class="btn btn-primary javaBtn">Add Another Ingredient</button>
                 <button onclick="removeInputField()" class="btn btn-danger javaBtn">Remove Last Ingredient</button>
             </div>
         </div>
-
-
 
         <script src="javascript/addRemoveInputFormFields.js"></script>
         <c:import url="templates/footer.jsp"/>
