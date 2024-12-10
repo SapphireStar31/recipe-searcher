@@ -14,6 +14,7 @@ function addInputField() {
     newInputField.setAttribute("type", "text");
     newInputField.setAttribute("id", ingredientNumberName);
     newInputField.setAttribute("name", ingredientNumberName);
+    newInputField.setAttribute("required", true);
 
     const addLineBreak = document.createElement("br");
 
